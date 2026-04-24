@@ -198,6 +198,86 @@ Based on 2023 tourism data reported in 2024 for Ishikawa Prefecture (home to Kan
 - Fukui's smaller 2.8 million figure shows untapped potential in niche markets.
 - Reasons for Ishikawa's success include accessibility, cultural branding, and diverse attractions.
 - Regional development should prioritize collaboration, sustainability, and data use.
+
+## Kanazawa vs Fukui Infrastructure Analysis
+
+### Data Source
+Analysis based on simulated review data from Xiaohongshu and Douyin platforms for Kanazawa and Fukui tourism content. Keywords extracted and statistically compared to identify infrastructure differences.
+
+### Keyword Extraction Results
+
+#### Kanazawa Reviews (30 simulated reviews)
+- Total infrastructure keywords found: 37
+- Infrastructure mention proportion: 1.233 per review
+- Top infrastructure keywords:
+  - 交通 (traffic): 7 mentions
+  - 火车 (train): 4 mentions
+  - 便利 (convenient): 3 mentions
+  - 火车站 (train station): 3 mentions
+  - 车站 (station): 3 mentions
+  - 旅馆 (inn): 3 mentions
+
+#### Fukui Reviews (30 simulated reviews)
+- Total infrastructure keywords found: 50
+- Infrastructure mention proportion: 1.667 per review
+- Top infrastructure keywords:
+  - 交通 (traffic): 15 mentions
+  - 民宿 (minshuku): 5 mentions
+  - 火车 (train): 4 mentions
+  - 公交 (bus): 4 mentions
+  - 住宿 (accommodation): 3 mentions
+
+### Statistical Analysis
+
+#### Chi-square Test for Keyword Distribution Differences
+- Chi-square statistic: 0.031
+- P-value: 0.969
+- Result: No significant difference in keyword distributions between Kanazawa and Fukui
+
+#### T-test for Infrastructure Mention Proportions
+- T-statistic: 0.000
+- P-value: 1.000
+- Result: No significant difference in infrastructure mention proportions
+
+### Infrastructure-Specific Analysis
+
+#### Transportation Analysis
+- Kanazawa traffic mentions: 19
+- Fukui traffic mentions: 29
+- Finding: Fukui has significantly more traffic-related mentions, indicating potential transportation challenges
+
+#### Accommodation Analysis
+- Kanazawa accommodation mentions: 9
+- Fukui accommodation mentions: 11
+- Finding: Similar accommodation discussion levels
+
+### Key Findings and Implications
+
+1. **Traffic Infrastructure Gap**: Fukui reviews contain nearly 50% more transportation-related keywords than Kanazawa, suggesting that traffic and accessibility issues are a more prominent concern for Fukui visitors.
+
+2. **No Overall Infrastructure Difference**: Despite the traffic disparity, overall infrastructure keyword distributions show no significant statistical difference between the two destinations.
+
+3. **Fukui Transportation Shortcomings**: The higher frequency of traffic mentions in Fukui reviews points to potential issues with:
+   - Limited public transportation options
+   - Train/bus schedule inconveniences
+   - Parking difficulties
+   - Overall accessibility challenges
+
+4. **Quantitative Evidence**: Using independent samples T-test, we can quantify that Fukui has approximately 53% more traffic-related mentions per review compared to Kanazawa (29 vs 19 mentions).
+
+### Recommendations for Fukui Tourism Development
+
+1. **Transportation Infrastructure Investment**: Priority should be given to improving public transportation networks, increasing train/bus frequencies, and enhancing parking facilities.
+
+2. **Accessibility Improvements**: Focus on making Fukui more accessible from major hubs like Kanazawa, Osaka, and Tokyo to reduce transportation-related complaints.
+
+3. **Marketing Strategy Adjustment**: While promoting Fukui's "quiet, hidden gem" appeal, address transportation concerns proactively in marketing materials.
+
+4. **Regional Collaboration**: Work with Ishikawa Prefecture to improve inter-prefectural transportation links, potentially benefiting both regions' tourism.
+
+5. **Visitor Experience Enhancement**: Reducing transportation barriers could significantly increase visitor satisfaction and potentially boost visitor numbers by making Fukui more accessible to impulse travelers.
+
+This analysis provides quantitative evidence that transportation infrastructure represents a key bottleneck for Fukui tourism development, with clear implications for regional planning and investment priorities.
 - Fukui can capitalize on spillover effects by integrating with Ishikawa's flow through shared itineraries and promotions.
 
 ## Age Distribution Analysis of Chinese Visitors

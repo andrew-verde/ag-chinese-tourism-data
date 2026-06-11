@@ -125,9 +125,11 @@ def main():
         notes = scroll_to_load(page, iterations=args.scrolls, delay=args.delay)
         browser.close()
 
-    if not notes:
-        print('No notes were found. It may require a logged-in session or a different search path.')
-        return
+    if not notes and not args.allow_empty:
+        raise SystemExit(
+            'No notes were found. It may require a logged-in session or a different search path. '
+            'Existing output was left unchanged.'
+        )
 
     unique_notes = {note['note_url']: note for note in notes}
     rows = list(unique_notes.values())

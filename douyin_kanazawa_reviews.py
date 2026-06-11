@@ -131,7 +131,7 @@ def main():
         except UnsafeWriteError as e:
             raise SystemExit(str(e)) from e
         except Exception as e:
-            print(f'Error: {e}')
+            raise SystemExit(f'Error: {e}') from e
         finally:
             browser.close()
 

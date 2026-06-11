@@ -1,13 +1,51 @@
-.DS_Store
+# Virtual environments
+myenv/
+venv/
+env/
+.venv/
+
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
+# Tool caches
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
 
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data/temp files
 *.tmp
 *.bak
+*.log
 backups/
 **/backups/
+venv-annotate/
+mlit_data/

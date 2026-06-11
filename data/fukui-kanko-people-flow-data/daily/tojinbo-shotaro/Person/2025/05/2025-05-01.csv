@@ -1,0 +1,25 @@
+placement,object class,aggregate from,aggregate to,total count
+tojinbo-shotaro,Person,2025-05-01 00:00:00,2025-05-01 01:00:00,0
+tojinbo-shotaro,Person,2025-05-01 01:00:00,2025-05-01 02:00:00,0
+tojinbo-shotaro,Person,2025-05-01 02:00:00,2025-05-01 03:00:00,1
+tojinbo-shotaro,Person,2025-05-01 03:00:00,2025-05-01 04:00:00,1
+tojinbo-shotaro,Person,2025-05-01 04:00:00,2025-05-01 05:00:00,0
+tojinbo-shotaro,Person,2025-05-01 05:00:00,2025-05-01 06:00:00,7
+tojinbo-shotaro,Person,2025-05-01 06:00:00,2025-05-01 07:00:00,101
+tojinbo-shotaro,Person,2025-05-01 07:00:00,2025-05-01 08:00:00,153
+tojinbo-shotaro,Person,2025-05-01 08:00:00,2025-05-01 09:00:00,404
+tojinbo-shotaro,Person,2025-05-01 09:00:00,2025-05-01 10:00:00,976
+tojinbo-shotaro,Person,2025-05-01 10:00:00,2025-05-01 11:00:00,1527
+tojinbo-shotaro,Person,2025-05-01 11:00:00,2025-05-01 12:00:00,1801
+tojinbo-shotaro,Person,2025-05-01 12:00:00,2025-05-01 13:00:00,2112
+tojinbo-shotaro,Person,2025-05-01 13:00:00,2025-05-01 14:00:00,2115
+tojinbo-shotaro,Person,2025-05-01 14:00:00,2025-05-01 15:00:00,2026
+tojinbo-shotaro,Person,2025-05-01 15:00:00,2025-05-01 16:00:00,2047
+tojinbo-shotaro,Person,2025-05-01 16:00:00,2025-05-01 17:00:00,1576
+tojinbo-shotaro,Person,2025-05-01 17:00:00,2025-05-01 18:00:00,680
+tojinbo-shotaro,Person,2025-05-01 18:00:00,2025-05-01 19:00:00,100
+tojinbo-shotaro,Person,2025-05-01 19:00:00,2025-05-01 20:00:00,7
+tojinbo-shotaro,Person,2025-05-01 20:00:00,2025-05-01 21:00:00,13
+tojinbo-shotaro,Person,2025-05-01 21:00:00,2025-05-01 22:00:00,0
+tojinbo-shotaro,Person,2025-05-01 22:00:00,2025-05-01 23:00:00,11
+tojinbo-shotaro,Person,2025-05-01 23:00:00,2025-05-02 00:00:00,0

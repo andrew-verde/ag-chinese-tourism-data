@@ -1,4 +1,5 @@
 import os
+import shutil
 import urllib.request
 
 links = [
@@ -106,14 +107,29 @@ def download(url, outdir):
     os.makedirs(outdir, exist_ok=True)
     filename = os.path.basename(url)
     outpath = os.path.join(outdir, filename)
-    if os.path.exists(outpath):
+    temp_path = outpath + ".tmp"
+    backup_path = outpath + ".bak"
+
+    if os.path.exists(outpath) and os.path.getsize(outpath) > 0:
         print(f"Already exists: {filename}")
         return
+
     try:
         print(f"Downloading {filename}...")
-        urllib.request.urlretrieve(url, outpath)
+        urllib.request.urlretrieve(url, temp_path)
+        if not os.path.exists(temp_path) or os.path.getsize(temp_path) == 0:
+            print(f"Failed {filename}: downloaded file is empty")
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+            return
+        if os.path.exists(outpath):
+            shutil.copy2(outpath, backup_path)
+            print(f"Backed up previous file: {backup_path}")
+        os.replace(temp_path, outpath)
         print(f"Saved: {outpath}")
     except Exception as e:
+        if os.path.exists(temp_path):
+            os.remove(temp_path)
         print(f"Failed {filename}: {e}")
 
 if __name__ == '__main__':

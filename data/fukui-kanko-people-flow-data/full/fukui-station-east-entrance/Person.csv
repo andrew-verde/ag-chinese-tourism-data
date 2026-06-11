@@ -1,0 +1,554 @@
+placement,object class,aggregate from,aggregate to,total count
+fukui-station-east-entrance,Person,2024-12-20 00:00:00,2024-12-21 00:00:00,6563
+fukui-station-east-entrance,Person,2024-12-21 00:00:00,2024-12-22 00:00:00,11710
+fukui-station-east-entrance,Person,2024-12-22 00:00:00,2024-12-23 00:00:00,7446
+fukui-station-east-entrance,Person,2024-12-23 00:00:00,2024-12-24 00:00:00,6317
+fukui-station-east-entrance,Person,2024-12-24 00:00:00,2024-12-25 00:00:00,5941
+fukui-station-east-entrance,Person,2024-12-25 00:00:00,2024-12-26 00:00:00,8476
+fukui-station-east-entrance,Person,2024-12-26 00:00:00,2024-12-27 00:00:00,6630
+fukui-station-east-entrance,Person,2024-12-27 00:00:00,2024-12-28 00:00:00,7179
+fukui-station-east-entrance,Person,2024-12-28 00:00:00,2024-12-29 00:00:00,11207
+fukui-station-east-entrance,Person,2024-12-29 00:00:00,2024-12-30 00:00:00,11829
+fukui-station-east-entrance,Person,2024-12-30 00:00:00,2024-12-31 00:00:00,11800
+fukui-station-east-entrance,Person,2024-12-31 00:00:00,2025-01-01 00:00:00,8797
+fukui-station-east-entrance,Person,2025-01-01 00:00:00,2025-01-02 00:00:00,9718
+fukui-station-east-entrance,Person,2025-01-02 00:00:00,2025-01-03 00:00:00,11478
+fukui-station-east-entrance,Person,2025-01-03 00:00:00,2025-01-04 00:00:00,13093
+fukui-station-east-entrance,Person,2025-01-04 00:00:00,2025-01-05 00:00:00,12801
+fukui-station-east-entrance,Person,2025-01-05 00:00:00,2025-01-06 00:00:00,9841
+fukui-station-east-entrance,Person,2025-01-06 00:00:00,2025-01-07 00:00:00,6158
+fukui-station-east-entrance,Person,2025-01-07 00:00:00,2025-01-08 00:00:00,4593
+fukui-station-east-entrance,Person,2025-01-08 00:00:00,2025-01-09 00:00:00,4460
+fukui-station-east-entrance,Person,2025-01-09 00:00:00,2025-01-10 00:00:00,4393
+fukui-station-east-entrance,Person,2025-01-10 00:00:00,2025-01-11 00:00:00,4952
+fukui-station-east-entrance,Person,2025-01-11 00:00:00,2025-01-12 00:00:00,5693
+fukui-station-east-entrance,Person,2025-01-12 00:00:00,2025-01-13 00:00:00,8090
+fukui-station-east-entrance,Person,2025-01-13 00:00:00,2025-01-14 00:00:00,7231
+fukui-station-east-entrance,Person,2025-01-14 00:00:00,2025-01-15 00:00:00,4990
+fukui-station-east-entrance,Person,2025-01-15 00:00:00,2025-01-16 00:00:00,5328
+fukui-station-east-entrance,Person,2025-01-16 00:00:00,2025-01-17 00:00:00,4761
+fukui-station-east-entrance,Person,2025-01-17 00:00:00,2025-01-18 00:00:00,6143
+fukui-station-east-entrance,Person,2025-01-18 00:00:00,2025-01-19 00:00:00,7452
+fukui-station-east-entrance,Person,2025-01-19 00:00:00,2025-01-20 00:00:00,7919
+fukui-station-east-entrance,Person,2025-01-20 00:00:00,2025-01-21 00:00:00,5068
+fukui-station-east-entrance,Person,2025-01-21 00:00:00,2025-01-22 00:00:00,4852
+fukui-station-east-entrance,Person,2025-01-22 00:00:00,2025-01-23 00:00:00,4970
+fukui-station-east-entrance,Person,2025-01-23 00:00:00,2025-01-24 00:00:00,4787
+fukui-station-east-entrance,Person,2025-01-24 00:00:00,2025-01-25 00:00:00,5827
+fukui-station-east-entrance,Person,2025-01-25 00:00:00,2025-01-26 00:00:00,8195
+fukui-station-east-entrance,Person,2025-01-26 00:00:00,2025-01-27 00:00:00,8024
+fukui-station-east-entrance,Person,2025-01-27 00:00:00,2025-01-28 00:00:00,5536
+fukui-station-east-entrance,Person,2025-01-28 00:00:00,2025-01-29 00:00:00,4887
+fukui-station-east-entrance,Person,2025-01-29 00:00:00,2025-01-30 00:00:00,4492
+fukui-station-east-entrance,Person,2025-01-30 00:00:00,2025-01-31 00:00:00,4625
+fukui-station-east-entrance,Person,2025-01-31 00:00:00,2025-02-01 00:00:00,5997
+fukui-station-east-entrance,Person,2025-02-01 00:00:00,2025-02-02 00:00:00,6871
+fukui-station-east-entrance,Person,2025-02-02 00:00:00,2025-02-03 00:00:00,7717
+fukui-station-east-entrance,Person,2025-02-03 00:00:00,2025-02-04 00:00:00,5107
+fukui-station-east-entrance,Person,2025-02-04 00:00:00,2025-02-05 00:00:00,4460
+fukui-station-east-entrance,Person,2025-02-05 00:00:00,2025-02-06 00:00:00,3529
+fukui-station-east-entrance,Person,2025-02-06 00:00:00,2025-02-07 00:00:00,4105
+fukui-station-east-entrance,Person,2025-02-07 00:00:00,2025-02-08 00:00:00,5577
+fukui-station-east-entrance,Person,2025-02-08 00:00:00,2025-02-09 00:00:00,6504
+fukui-station-east-entrance,Person,2025-02-09 00:00:00,2025-02-10 00:00:00,8631
+fukui-station-east-entrance,Person,2025-02-10 00:00:00,2025-02-11 00:00:00,8028
+fukui-station-east-entrance,Person,2025-02-11 00:00:00,2025-02-12 00:00:00,6588
+fukui-station-east-entrance,Person,2025-02-12 00:00:00,2025-02-13 00:00:00,5119
+fukui-station-east-entrance,Person,2025-02-13 00:00:00,2025-02-14 00:00:00,5879
+fukui-station-east-entrance,Person,2025-02-14 00:00:00,2025-02-15 00:00:00,5749
+fukui-station-east-entrance,Person,2025-02-15 00:00:00,2025-02-16 00:00:00,7014
+fukui-station-east-entrance,Person,2025-02-16 00:00:00,2025-02-17 00:00:00,7740
+fukui-station-east-entrance,Person,2025-02-17 00:00:00,2025-02-18 00:00:00,6099
+fukui-station-east-entrance,Person,2025-02-18 00:00:00,2025-02-19 00:00:00,5527
+fukui-station-east-entrance,Person,2025-02-19 00:00:00,2025-02-20 00:00:00,5946
+fukui-station-east-entrance,Person,2025-02-20 00:00:00,2025-02-21 00:00:00,5573
+fukui-station-east-entrance,Person,2025-02-21 00:00:00,2025-02-22 00:00:00,6628
+fukui-station-east-entrance,Person,2025-02-22 00:00:00,2025-02-23 00:00:00,9154
+fukui-station-east-entrance,Person,2025-02-23 00:00:00,2025-02-24 00:00:00,10420
+fukui-station-east-entrance,Person,2025-02-24 00:00:00,2025-02-25 00:00:00,9146
+fukui-station-east-entrance,Person,2025-02-25 00:00:00,2025-02-26 00:00:00,7510
+fukui-station-east-entrance,Person,2025-02-26 00:00:00,2025-02-27 00:00:00,6675
+fukui-station-east-entrance,Person,2025-02-27 00:00:00,2025-02-28 00:00:00,6350
+fukui-station-east-entrance,Person,2025-02-28 00:00:00,2025-03-01 00:00:00,6833
+fukui-station-east-entrance,Person,2025-03-01 00:00:00,2025-03-02 00:00:00,8239
+fukui-station-east-entrance,Person,2025-03-02 00:00:00,2025-03-03 00:00:00,9108
+fukui-station-east-entrance,Person,2025-03-03 00:00:00,2025-03-04 00:00:00,5550
+fukui-station-east-entrance,Person,2025-03-04 00:00:00,2025-03-05 00:00:00,5930
+fukui-station-east-entrance,Person,2025-03-05 00:00:00,2025-03-06 00:00:00,5154
+fukui-station-east-entrance,Person,2025-03-06 00:00:00,2025-03-07 00:00:00,6343
+fukui-station-east-entrance,Person,2025-03-07 00:00:00,2025-03-08 00:00:00,7247
+fukui-station-east-entrance,Person,2025-03-08 00:00:00,2025-03-09 00:00:00,9689
+fukui-station-east-entrance,Person,2025-03-09 00:00:00,2025-03-10 00:00:00,9306
+fukui-station-east-entrance,Person,2025-03-10 00:00:00,2025-03-11 00:00:00,6007
+fukui-station-east-entrance,Person,2025-03-11 00:00:00,2025-03-12 00:00:00,6014
+fukui-station-east-entrance,Person,2025-03-12 00:00:00,2025-03-13 00:00:00,6410
+fukui-station-east-entrance,Person,2025-03-13 00:00:00,2025-03-14 00:00:00,5859
+fukui-station-east-entrance,Person,2025-03-14 00:00:00,2025-03-15 00:00:00,7863
+fukui-station-east-entrance,Person,2025-03-15 00:00:00,2025-03-16 00:00:00,10039
+fukui-station-east-entrance,Person,2025-03-16 00:00:00,2025-03-17 00:00:00,12395
+fukui-station-east-entrance,Person,2025-03-17 00:00:00,2025-03-18 00:00:00,7637
+fukui-station-east-entrance,Person,2025-03-18 00:00:00,2025-03-19 00:00:00,7165
+fukui-station-east-entrance,Person,2025-03-19 00:00:00,2025-03-20 00:00:00,7247
+fukui-station-east-entrance,Person,2025-03-20 00:00:00,2025-03-21 00:00:00,11010
+fukui-station-east-entrance,Person,2025-03-21 00:00:00,2025-03-22 00:00:00,9409
+fukui-station-east-entrance,Person,2025-03-22 00:00:00,2025-03-23 00:00:00,12287
+fukui-station-east-entrance,Person,2025-03-23 00:00:00,2025-03-24 00:00:00,11328
+fukui-station-east-entrance,Person,2025-03-24 00:00:00,2025-03-25 00:00:00,7152
+fukui-station-east-entrance,Person,2025-03-25 00:00:00,2025-03-26 00:00:00,7907
+fukui-station-east-entrance,Person,2025-03-26 00:00:00,2025-03-27 00:00:00,8790
+fukui-station-east-entrance,Person,2025-03-27 00:00:00,2025-03-28 00:00:00,8552
+fukui-station-east-entrance,Person,2025-03-28 00:00:00,2025-03-29 00:00:00,8525
+fukui-station-east-entrance,Person,2025-03-29 00:00:00,2025-03-30 00:00:00,13305
+fukui-station-east-entrance,Person,2025-03-30 00:00:00,2025-03-31 00:00:00,19374
+fukui-station-east-entrance,Person,2025-03-31 00:00:00,2025-04-01 00:00:00,8671
+fukui-station-east-entrance,Person,2025-04-01 00:00:00,2025-04-02 00:00:00,7130
+fukui-station-east-entrance,Person,2025-04-02 00:00:00,2025-04-03 00:00:00,8111
+fukui-station-east-entrance,Person,2025-04-03 00:00:00,2025-04-04 00:00:00,7819
+fukui-station-east-entrance,Person,2025-04-04 00:00:00,2025-04-05 00:00:00,8599
+fukui-station-east-entrance,Person,2025-04-05 00:00:00,2025-04-06 00:00:00,10051
+fukui-station-east-entrance,Person,2025-04-06 00:00:00,2025-04-07 00:00:00,12523
+fukui-station-east-entrance,Person,2025-04-07 00:00:00,2025-04-08 00:00:00,6793
+fukui-station-east-entrance,Person,2025-04-08 00:00:00,2025-04-09 00:00:00,5840
+fukui-station-east-entrance,Person,2025-04-09 00:00:00,2025-04-10 00:00:00,6231
+fukui-station-east-entrance,Person,2025-04-10 00:00:00,2025-04-11 00:00:00,5840
+fukui-station-east-entrance,Person,2025-04-11 00:00:00,2025-04-12 00:00:00,7281
+fukui-station-east-entrance,Person,2025-04-12 00:00:00,2025-04-13 00:00:00,10689
+fukui-station-east-entrance,Person,2025-04-13 00:00:00,2025-04-14 00:00:00,9402
+fukui-station-east-entrance,Person,2025-04-14 00:00:00,2025-04-15 00:00:00,6173
+fukui-station-east-entrance,Person,2025-04-15 00:00:00,2025-04-16 00:00:00,7118
+fukui-station-east-entrance,Person,2025-04-16 00:00:00,2025-04-17 00:00:00,6553
+fukui-station-east-entrance,Person,2025-04-17 00:00:00,2025-04-18 00:00:00,6765
+fukui-station-east-entrance,Person,2025-04-18 00:00:00,2025-04-19 00:00:00,8348
+fukui-station-east-entrance,Person,2025-04-19 00:00:00,2025-04-20 00:00:00,9674
+fukui-station-east-entrance,Person,2025-04-20 00:00:00,2025-04-21 00:00:00,0
+fukui-station-east-entrance,Person,2025-04-21 00:00:00,2025-04-22 00:00:00,6491
+fukui-station-east-entrance,Person,2025-04-22 00:00:00,2025-04-23 00:00:00,6701
+fukui-station-east-entrance,Person,2025-04-23 00:00:00,2025-04-24 00:00:00,6503
+fukui-station-east-entrance,Person,2025-04-24 00:00:00,2025-04-25 00:00:00,7526
+fukui-station-east-entrance,Person,2025-04-25 00:00:00,2025-04-26 00:00:00,7861
+fukui-station-east-entrance,Person,2025-04-26 00:00:00,2025-04-27 00:00:00,10850
+fukui-station-east-entrance,Person,2025-04-27 00:00:00,2025-04-28 00:00:00,10877
+fukui-station-east-entrance,Person,2025-04-28 00:00:00,2025-04-29 00:00:00,7446
+fukui-station-east-entrance,Person,2025-04-29 00:00:00,2025-04-30 00:00:00,1007
+fukui-station-east-entrance,Person,2025-04-30 00:00:00,2025-05-01 00:00:00,6789
+fukui-station-east-entrance,Person,2025-05-01 00:00:00,2025-05-02 00:00:00,7911
+fukui-station-east-entrance,Person,2025-05-02 00:00:00,2025-05-03 00:00:00,9659
+fukui-station-east-entrance,Person,2025-05-03 00:00:00,2025-05-04 00:00:00,14614
+fukui-station-east-entrance,Person,2025-05-04 00:00:00,2025-05-05 00:00:00,10827
+fukui-station-east-entrance,Person,2025-05-05 00:00:00,2025-05-06 00:00:00,15697
+fukui-station-east-entrance,Person,2025-05-06 00:00:00,2025-05-07 00:00:00,12439
+fukui-station-east-entrance,Person,2025-05-07 00:00:00,2025-05-08 00:00:00,6605
+fukui-station-east-entrance,Person,2025-05-08 00:00:00,2025-05-09 00:00:00,6029
+fukui-station-east-entrance,Person,2025-05-09 00:00:00,2025-05-10 00:00:00,6970
+fukui-station-east-entrance,Person,2025-05-10 00:00:00,2025-05-11 00:00:00,9857
+fukui-station-east-entrance,Person,2025-05-11 00:00:00,2025-05-12 00:00:00,11456
+fukui-station-east-entrance,Person,2025-05-12 00:00:00,2025-05-13 00:00:00,7778
+fukui-station-east-entrance,Person,2025-05-13 00:00:00,2025-05-14 00:00:00,7438
+fukui-station-east-entrance,Person,2025-05-14 00:00:00,2025-05-15 00:00:00,7702
+fukui-station-east-entrance,Person,2025-05-15 00:00:00,2025-05-16 00:00:00,8382
+fukui-station-east-entrance,Person,2025-05-16 00:00:00,2025-05-17 00:00:00,9425
+fukui-station-east-entrance,Person,2025-05-17 00:00:00,2025-05-18 00:00:00,11199
+fukui-station-east-entrance,Person,2025-05-18 00:00:00,2025-05-19 00:00:00,10535
+fukui-station-east-entrance,Person,2025-05-19 00:00:00,2025-05-20 00:00:00,7844
+fukui-station-east-entrance,Person,2025-05-20 00:00:00,2025-05-21 00:00:00,6813
+fukui-station-east-entrance,Person,2025-05-21 00:00:00,2025-05-22 00:00:00,7594
+fukui-station-east-entrance,Person,2025-05-22 00:00:00,2025-05-23 00:00:00,8427
+fukui-station-east-entrance,Person,2025-05-23 00:00:00,2025-05-24 00:00:00,10110
+fukui-station-east-entrance,Person,2025-05-24 00:00:00,2025-05-25 00:00:00,10747
+fukui-station-east-entrance,Person,2025-05-25 00:00:00,2025-05-26 00:00:00,11836
+fukui-station-east-entrance,Person,2025-05-26 00:00:00,2025-05-27 00:00:00,7875
+fukui-station-east-entrance,Person,2025-05-27 00:00:00,2025-05-28 00:00:00,7346
+fukui-station-east-entrance,Person,2025-05-28 00:00:00,2025-05-29 00:00:00,6642
+fukui-station-east-entrance,Person,2025-05-29 00:00:00,2025-05-30 00:00:00,7211
+fukui-station-east-entrance,Person,2025-05-30 00:00:00,2025-05-31 00:00:00,8043
+fukui-station-east-entrance,Person,2025-05-31 00:00:00,2025-06-01 00:00:00,9824
+fukui-station-east-entrance,Person,2025-06-01 00:00:00,2025-06-02 00:00:00,9558
+fukui-station-east-entrance,Person,2025-06-02 00:00:00,2025-06-03 00:00:00,4758
+fukui-station-east-entrance,Person,2025-06-03 00:00:00,2025-06-04 00:00:00,6010
+fukui-station-east-entrance,Person,2025-06-04 00:00:00,2025-06-05 00:00:00,6861
+fukui-station-east-entrance,Person,2025-06-05 00:00:00,2025-06-06 00:00:00,7174
+fukui-station-east-entrance,Person,2025-06-06 00:00:00,2025-06-07 00:00:00,8915
+fukui-station-east-entrance,Person,2025-06-07 00:00:00,2025-06-08 00:00:00,10068
+fukui-station-east-entrance,Person,2025-06-08 00:00:00,2025-06-09 00:00:00,10767
+fukui-station-east-entrance,Person,2025-06-09 00:00:00,2025-06-10 00:00:00,6799
+fukui-station-east-entrance,Person,2025-06-10 00:00:00,2025-06-11 00:00:00,5734
+fukui-station-east-entrance,Person,2025-06-11 00:00:00,2025-06-12 00:00:00,6170
+fukui-station-east-entrance,Person,2025-06-12 00:00:00,2025-06-13 00:00:00,7650
+fukui-station-east-entrance,Person,2025-06-13 00:00:00,2025-06-14 00:00:00,7782
+fukui-station-east-entrance,Person,2025-06-14 00:00:00,2025-06-15 00:00:00,9280
+fukui-station-east-entrance,Person,2025-06-15 00:00:00,2025-06-16 00:00:00,9560
+fukui-station-east-entrance,Person,2025-06-16 00:00:00,2025-06-17 00:00:00,7470
+fukui-station-east-entrance,Person,2025-06-17 00:00:00,2025-06-18 00:00:00,6305
+fukui-station-east-entrance,Person,2025-06-18 00:00:00,2025-06-19 00:00:00,6325
+fukui-station-east-entrance,Person,2025-06-19 00:00:00,2025-06-20 00:00:00,6854
+fukui-station-east-entrance,Person,2025-06-20 00:00:00,2025-06-21 00:00:00,8350
+fukui-station-east-entrance,Person,2025-06-21 00:00:00,2025-06-22 00:00:00,10182
+fukui-station-east-entrance,Person,2025-06-22 00:00:00,2025-06-23 00:00:00,10048
+fukui-station-east-entrance,Person,2025-06-23 00:00:00,2025-06-24 00:00:00,6926
+fukui-station-east-entrance,Person,2025-06-24 00:00:00,2025-06-25 00:00:00,6578
+fukui-station-east-entrance,Person,2025-06-25 00:00:00,2025-06-26 00:00:00,7563
+fukui-station-east-entrance,Person,2025-06-26 00:00:00,2025-06-27 00:00:00,7305
+fukui-station-east-entrance,Person,2025-06-27 00:00:00,2025-06-28 00:00:00,8757
+fukui-station-east-entrance,Person,2025-06-28 00:00:00,2025-06-29 00:00:00,11895
+fukui-station-east-entrance,Person,2025-06-29 00:00:00,2025-06-30 00:00:00,12213
+fukui-station-east-entrance,Person,2025-06-30 00:00:00,2025-07-01 00:00:00,7034
+fukui-station-east-entrance,Person,2025-07-01 00:00:00,2025-07-02 00:00:00,6742
+fukui-station-east-entrance,Person,2025-07-02 00:00:00,2025-07-03 00:00:00,6918
+fukui-station-east-entrance,Person,2025-07-03 00:00:00,2025-07-04 00:00:00,7013
+fukui-station-east-entrance,Person,2025-07-04 00:00:00,2025-07-05 00:00:00,8106
+fukui-station-east-entrance,Person,2025-07-05 00:00:00,2025-07-06 00:00:00,10117
+fukui-station-east-entrance,Person,2025-07-06 00:00:00,2025-07-07 00:00:00,11211
+fukui-station-east-entrance,Person,2025-07-07 00:00:00,2025-07-08 00:00:00,6863
+fukui-station-east-entrance,Person,2025-07-08 00:00:00,2025-07-09 00:00:00,6475
+fukui-station-east-entrance,Person,2025-07-09 00:00:00,2025-07-10 00:00:00,6883
+fukui-station-east-entrance,Person,2025-07-10 00:00:00,2025-07-11 00:00:00,6969
+fukui-station-east-entrance,Person,2025-07-11 00:00:00,2025-07-12 00:00:00,7249
+fukui-station-east-entrance,Person,2025-07-12 00:00:00,2025-07-13 00:00:00,10122
+fukui-station-east-entrance,Person,2025-07-13 00:00:00,2025-07-14 00:00:00,9659
+fukui-station-east-entrance,Person,2025-07-14 00:00:00,2025-07-15 00:00:00,6859
+fukui-station-east-entrance,Person,2025-07-15 00:00:00,2025-07-16 00:00:00,6396
+fukui-station-east-entrance,Person,2025-07-16 00:00:00,2025-07-17 00:00:00,7284
+fukui-station-east-entrance,Person,2025-07-17 00:00:00,2025-07-18 00:00:00,7053
+fukui-station-east-entrance,Person,2025-07-18 00:00:00,2025-07-19 00:00:00,7766
+fukui-station-east-entrance,Person,2025-07-19 00:00:00,2025-07-20 00:00:00,12340
+fukui-station-east-entrance,Person,2025-07-20 00:00:00,2025-07-21 00:00:00,12471
+fukui-station-east-entrance,Person,2025-07-21 00:00:00,2025-07-22 00:00:00,12706
+fukui-station-east-entrance,Person,2025-07-22 00:00:00,2025-07-23 00:00:00,8157
+fukui-station-east-entrance,Person,2025-07-23 00:00:00,2025-07-24 00:00:00,8826
+fukui-station-east-entrance,Person,2025-07-24 00:00:00,2025-07-25 00:00:00,8728
+fukui-station-east-entrance,Person,2025-07-25 00:00:00,2025-07-26 00:00:00,9589
+fukui-station-east-entrance,Person,2025-07-26 00:00:00,2025-07-27 00:00:00,11860
+fukui-station-east-entrance,Person,2025-07-27 00:00:00,2025-07-28 00:00:00,11235
+fukui-station-east-entrance,Person,2025-07-28 00:00:00,2025-07-29 00:00:00,9219
+fukui-station-east-entrance,Person,2025-07-29 00:00:00,2025-07-30 00:00:00,9428
+fukui-station-east-entrance,Person,2025-07-30 00:00:00,2025-07-31 00:00:00,9381
+fukui-station-east-entrance,Person,2025-07-31 00:00:00,2025-08-01 00:00:00,9476
+fukui-station-east-entrance,Person,2025-08-01 00:00:00,2025-08-02 00:00:00,16420
+fukui-station-east-entrance,Person,2025-08-02 00:00:00,2025-08-03 00:00:00,14670
+fukui-station-east-entrance,Person,2025-08-03 00:00:00,2025-08-04 00:00:00,14611
+fukui-station-east-entrance,Person,2025-08-04 00:00:00,2025-08-05 00:00:00,10725
+fukui-station-east-entrance,Person,2025-08-05 00:00:00,2025-08-06 00:00:00,11938
+fukui-station-east-entrance,Person,2025-08-06 00:00:00,2025-08-07 00:00:00,10441
+fukui-station-east-entrance,Person,2025-08-07 00:00:00,2025-08-08 00:00:00,11123
+fukui-station-east-entrance,Person,2025-08-08 00:00:00,2025-08-09 00:00:00,11802
+fukui-station-east-entrance,Person,2025-08-09 00:00:00,2025-08-10 00:00:00,13831
+fukui-station-east-entrance,Person,2025-08-10 00:00:00,2025-08-11 00:00:00,14389
+fukui-station-east-entrance,Person,2025-08-11 00:00:00,2025-08-12 00:00:00,15653
+fukui-station-east-entrance,Person,2025-08-12 00:00:00,2025-08-13 00:00:00,14461
+fukui-station-east-entrance,Person,2025-08-13 00:00:00,2025-08-14 00:00:00,14761
+fukui-station-east-entrance,Person,2025-08-14 00:00:00,2025-08-15 00:00:00,14774
+fukui-station-east-entrance,Person,2025-08-15 00:00:00,2025-08-16 00:00:00,15641
+fukui-station-east-entrance,Person,2025-08-16 00:00:00,2025-08-17 00:00:00,16363
+fukui-station-east-entrance,Person,2025-08-17 00:00:00,2025-08-18 00:00:00,16725
+fukui-station-east-entrance,Person,2025-08-18 00:00:00,2025-08-19 00:00:00,12279
+fukui-station-east-entrance,Person,2025-08-19 00:00:00,2025-08-20 00:00:00,10000
+fukui-station-east-entrance,Person,2025-08-20 00:00:00,2025-08-21 00:00:00,10382
+fukui-station-east-entrance,Person,2025-08-21 00:00:00,2025-08-22 00:00:00,10333
+fukui-station-east-entrance,Person,2025-08-22 00:00:00,2025-08-23 00:00:00,10633
+fukui-station-east-entrance,Person,2025-08-23 00:00:00,2025-08-24 00:00:00,13341
+fukui-station-east-entrance,Person,2025-08-24 00:00:00,2025-08-25 00:00:00,13139
+fukui-station-east-entrance,Person,2025-08-25 00:00:00,2025-08-26 00:00:00,10167
+fukui-station-east-entrance,Person,2025-08-26 00:00:00,2025-08-27 00:00:00,9298
+fukui-station-east-entrance,Person,2025-08-27 00:00:00,2025-08-28 00:00:00,7332
+fukui-station-east-entrance,Person,2025-08-28 00:00:00,2025-08-29 00:00:00,7619
+fukui-station-east-entrance,Person,2025-08-29 00:00:00,2025-08-30 00:00:00,8903
+fukui-station-east-entrance,Person,2025-08-30 00:00:00,2025-08-31 00:00:00,10714
+fukui-station-east-entrance,Person,2025-08-31 00:00:00,2025-09-01 00:00:00,10298
+fukui-station-east-entrance,Person,2025-09-01 00:00:00,2025-09-02 00:00:00,6917
+fukui-station-east-entrance,Person,2025-09-02 00:00:00,2025-09-03 00:00:00,7156
+fukui-station-east-entrance,Person,2025-09-03 00:00:00,2025-09-04 00:00:00,7282
+fukui-station-east-entrance,Person,2025-09-04 00:00:00,2025-09-05 00:00:00,7142
+fukui-station-east-entrance,Person,2025-09-05 00:00:00,2025-09-06 00:00:00,8199
+fukui-station-east-entrance,Person,2025-09-06 00:00:00,2025-09-07 00:00:00,11995
+fukui-station-east-entrance,Person,2025-09-07 00:00:00,2025-09-08 00:00:00,13623
+fukui-station-east-entrance,Person,2025-09-08 00:00:00,2025-09-09 00:00:00,8436
+fukui-station-east-entrance,Person,2025-09-09 00:00:00,2025-09-10 00:00:00,6736
+fukui-station-east-entrance,Person,2025-09-10 00:00:00,2025-09-11 00:00:00,6875
+fukui-station-east-entrance,Person,2025-09-11 00:00:00,2025-09-12 00:00:00,7299
+fukui-station-east-entrance,Person,2025-09-12 00:00:00,2025-09-13 00:00:00,8880
+fukui-station-east-entrance,Person,2025-09-13 00:00:00,2025-09-14 00:00:00,12374
+fukui-station-east-entrance,Person,2025-09-14 00:00:00,2025-09-15 00:00:00,12766
+fukui-station-east-entrance,Person,2025-09-15 00:00:00,2025-09-16 00:00:00,10994
+fukui-station-east-entrance,Person,2025-09-16 00:00:00,2025-09-17 00:00:00,7091
+fukui-station-east-entrance,Person,2025-09-17 00:00:00,2025-09-18 00:00:00,7493
+fukui-station-east-entrance,Person,2025-09-18 00:00:00,2025-09-19 00:00:00,7089
+fukui-station-east-entrance,Person,2025-09-19 00:00:00,2025-09-20 00:00:00,7990
+fukui-station-east-entrance,Person,2025-09-20 00:00:00,2025-09-21 00:00:00,10603
+fukui-station-east-entrance,Person,2025-09-21 00:00:00,2025-09-22 00:00:00,12478
+fukui-station-east-entrance,Person,2025-09-22 00:00:00,2025-09-23 00:00:00,9370
+fukui-station-east-entrance,Person,2025-09-23 00:00:00,2025-09-24 00:00:00,9957
+fukui-station-east-entrance,Person,2025-09-24 00:00:00,2025-09-25 00:00:00,7114
+fukui-station-east-entrance,Person,2025-09-25 00:00:00,2025-09-26 00:00:00,7394
+fukui-station-east-entrance,Person,2025-09-26 00:00:00,2025-09-27 00:00:00,0
+fukui-station-east-entrance,Person,2025-09-27 00:00:00,2025-09-28 00:00:00,0
+fukui-station-east-entrance,Person,2025-09-28 00:00:00,2025-09-29 00:00:00,0
+fukui-station-east-entrance,Person,2025-09-29 00:00:00,2025-09-30 00:00:00,3622
+fukui-station-east-entrance,Person,2025-09-30 00:00:00,2025-10-01 00:00:00,6488
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fukui-station-east-entrance,Person,2025-09-24 00:00:00,2025-09-25 00:00:00,7114
+fukui-station-east-entrance,Person,2025-09-25 00:00:00,2025-09-26 00:00:00,7394
+fukui-station-east-entrance,Person,2025-09-26 00:00:00,2025-09-27 00:00:00,0
+fukui-station-east-entrance,Person,2025-09-27 00:00:00,2025-09-28 00:00:00,0
+fukui-station-east-entrance,Person,2025-09-28 00:00:00,2025-09-29 00:00:00,0
+fukui-station-east-entrance,Person,2025-09-29 00:00:00,2025-09-30 00:00:00,3622
+fukui-station-east-entrance,Person,2025-09-30 00:00:00,2025-10-01 00:00:00,6488
+fukui-station-east-entrance,Person,2025-10-01 00:00:00,2025-10-02 00:00:00,6662
+fukui-station-east-entrance,Person,2025-10-02 00:00:00,2025-10-03 00:00:00,6399
+fukui-station-east-entrance,Person,2025-10-03 00:00:00,2025-10-04 00:00:00,7982
+fukui-station-east-entrance,Person,2025-10-04 00:00:00,2025-10-05 00:00:00,9640
+fukui-station-east-entrance,Person,2025-10-05 00:00:00,2025-10-06 00:00:00,9085
+fukui-station-east-entrance,Person,2025-10-06 00:00:00,2025-10-07 00:00:00,6303
+fukui-station-east-entrance,Person,2025-10-07 00:00:00,2025-10-08 00:00:00,6461
+fukui-station-east-entrance,Person,2025-10-08 00:00:00,2025-10-09 00:00:00,6721
+fukui-station-east-entrance,Person,2025-10-09 00:00:00,2025-10-10 00:00:00,5900
+fukui-station-east-entrance,Person,2025-10-10 00:00:00,2025-10-11 00:00:00,9394
+fukui-station-east-entrance,Person,2025-10-11 00:00:00,2025-10-12 00:00:00,12649
+fukui-station-east-entrance,Person,2025-10-12 00:00:00,2025-10-13 00:00:00,12729
+fukui-station-east-entrance,Person,2025-10-13 00:00:00,2025-10-14 00:00:00,12555
+fukui-station-east-entrance,Person,2025-10-14 00:00:00,2025-10-15 00:00:00,7690
+fukui-station-east-entrance,Person,2025-10-15 00:00:00,2025-10-16 00:00:00,7872
+fukui-station-east-entrance,Person,2025-10-16 00:00:00,2025-10-17 00:00:00,5558
+fukui-station-east-entrance,Person,2025-10-17 00:00:00,2025-10-18 00:00:00,8707
+fukui-station-east-entrance,Person,2025-10-18 00:00:00,2025-10-19 00:00:00,11759
+fukui-station-east-entrance,Person,2025-10-19 00:00:00,2025-10-20 00:00:00,11386
+fukui-station-east-entrance,Person,2025-10-20 00:00:00,2025-10-21 00:00:00,8236
+fukui-station-east-entrance,Person,2025-10-21 00:00:00,2025-10-22 00:00:00,8054
+fukui-station-east-entrance,Person,2025-10-22 00:00:00,2025-10-23 00:00:00,8081
+fukui-station-east-entrance,Person,2025-10-23 00:00:00,2025-10-24 00:00:00,7888
+fukui-station-east-entrance,Person,2025-10-24 00:00:00,2025-10-25 00:00:00,9342
+fukui-station-east-entrance,Person,2025-10-25 00:00:00,2025-10-26 00:00:00,13431
+fukui-station-east-entrance,Person,2025-10-26 00:00:00,2025-10-27 00:00:00,10529
+fukui-station-east-entrance,Person,2025-10-27 00:00:00,2025-10-28 00:00:00,8123
+fukui-station-east-entrance,Person,2025-10-28 00:00:00,2025-10-29 00:00:00,7948
+fukui-station-east-entrance,Person,2025-10-29 00:00:00,2025-10-30 00:00:00,8061
+fukui-station-east-entrance,Person,2025-10-30 00:00:00,2025-10-31 00:00:00,7745
+fukui-station-east-entrance,Person,2025-10-31 00:00:00,2025-11-01 00:00:00,10385
+fukui-station-east-entrance,Person,2025-11-01 00:00:00,2025-11-02 00:00:00,12163
+fukui-station-east-entrance,Person,2025-11-02 00:00:00,2025-11-03 00:00:00,12791
+fukui-station-east-entrance,Person,2025-11-03 00:00:00,2025-11-04 00:00:00,11775
+fukui-station-east-entrance,Person,2025-11-04 00:00:00,2025-11-05 00:00:00,6584
+fukui-station-east-entrance,Person,2025-11-05 00:00:00,2025-11-06 00:00:00,7877
+fukui-station-east-entrance,Person,2025-11-06 00:00:00,2025-11-07 00:00:00,7103
+fukui-station-east-entrance,Person,2025-11-07 00:00:00,2025-11-08 00:00:00,8574
+fukui-station-east-entrance,Person,2025-11-08 00:00:00,2025-11-09 00:00:00,10816
+fukui-station-east-entrance,Person,2025-11-09 00:00:00,2025-11-10 00:00:00,12020
+fukui-station-east-entrance,Person,2025-11-10 00:00:00,2025-11-11 00:00:00,5543
+fukui-station-east-entrance,Person,2025-11-11 00:00:00,2025-11-12 00:00:00,7725
+fukui-station-east-entrance,Person,2025-11-12 00:00:00,2025-11-13 00:00:00,7177
+fukui-station-east-entrance,Person,2025-11-13 00:00:00,2025-11-14 00:00:00,7535
+fukui-station-east-entrance,Person,2025-11-14 00:00:00,2025-11-15 00:00:00,9549
+fukui-station-east-entrance,Person,2025-11-15 00:00:00,2025-11-16 00:00:00,12126
+fukui-station-east-entrance,Person,2025-11-16 00:00:00,2025-11-17 00:00:00,12915
+fukui-station-east-entrance,Person,2025-11-17 00:00:00,2025-11-18 00:00:00,5815
+fukui-station-east-entrance,Person,2025-11-18 00:00:00,2025-11-19 00:00:00,8855
+fukui-station-east-entrance,Person,2025-11-19 00:00:00,2025-11-20 00:00:00,8668
+fukui-station-east-entrance,Person,2025-11-20 00:00:00,2025-11-21 00:00:00,8051
+fukui-station-east-entrance,Person,2025-11-21 00:00:00,2025-11-22 00:00:00,9100
+fukui-station-east-entrance,Person,2025-11-22 00:00:00,2025-11-23 00:00:00,13506
+fukui-station-east-entrance,Person,2025-11-23 00:00:00,2025-11-24 00:00:00,13913
+fukui-station-east-entrance,Person,2025-11-24 00:00:00,2025-11-25 00:00:00,12941
+fukui-station-east-entrance,Person,2025-11-25 00:00:00,2025-11-26 00:00:00,7573
+fukui-station-east-entrance,Person,2025-11-26 00:00:00,2025-11-27 00:00:00,7042
+fukui-station-east-entrance,Person,2025-11-27 00:00:00,2025-11-28 00:00:00,7107
+fukui-station-east-entrance,Person,2025-11-28 00:00:00,2025-11-29 00:00:00,8483
+fukui-station-east-entrance,Person,2025-11-29 00:00:00,2025-11-30 00:00:00,10638
+fukui-station-east-entrance,Person,2025-11-30 00:00:00,2025-12-01 00:00:00,10432
+fukui-station-east-entrance,Person,2025-12-01 00:00:00,2025-12-02 00:00:00,6008
+fukui-station-east-entrance,Person,2025-12-02 00:00:00,2025-12-03 00:00:00,5839
+fukui-station-east-entrance,Person,2025-12-03 00:00:00,2025-12-04 00:00:00,6214
+
+fukui-station-east-entrance,Person,2025-12-05 00:00:00,2025-12-06 00:00:00,7632
+fukui-station-east-entrance,Person,2025-12-06 00:00:00,2025-12-07 00:00:00,10433
+fukui-station-east-entrance,Person,2025-12-07 00:00:00,2025-12-08 00:00:00,9719
+fukui-station-east-entrance,Person,2025-12-08 00:00:00,2025-12-09 00:00:00,5918
+fukui-station-east-entrance,Person,2025-12-09 00:00:00,2025-12-10 00:00:00,5672
+fukui-station-east-entrance,Person,2025-12-10 00:00:00,2025-12-11 00:00:00,6161
+fukui-station-east-entrance,Person,2025-12-11 00:00:00,2025-12-12 00:00:00,6026
+fukui-station-east-entrance,Person,2025-12-12 00:00:00,2025-12-13 00:00:00,8282
+fukui-station-east-entrance,Person,2025-12-13 00:00:00,2025-12-14 00:00:00,10116
+fukui-station-east-entrance,Person,2025-12-14 00:00:00,2025-12-15 00:00:00,8338
+fukui-station-east-entrance,Person,2025-12-15 00:00:00,2025-12-16 00:00:00,5354
+fukui-station-east-entrance,Person,2025-12-16 00:00:00,2025-12-17 00:00:00,5331
+fukui-station-east-entrance,Person,2025-12-17 00:00:00,2025-12-18 00:00:00,5568
+fukui-station-east-entrance,Person,2025-12-18 00:00:00,2025-12-19 00:00:00,5969
+fukui-station-east-entrance,Person,2025-12-19 00:00:00,2025-12-20 00:00:00,6489
+fukui-station-east-entrance,Person,2025-12-20 00:00:00,2025-12-21 00:00:00,8419
+fukui-station-east-entrance,Person,2025-12-21 00:00:00,2025-12-22 00:00:00,8334
+fukui-station-east-entrance,Person,2025-12-22 00:00:00,2025-12-23 00:00:00,5887
+fukui-station-east-entrance,Person,2025-12-23 00:00:00,2025-12-24 00:00:00,4821
+fukui-station-east-entrance,Person,2025-12-24 00:00:00,2025-12-25 00:00:00,4592
+fukui-station-east-entrance,Person,2025-12-25 00:00:00,2025-12-26 00:00:00,0
+fukui-station-east-entrance,Person,2025-12-26 00:00:00,2025-12-27 00:00:00,0
+fukui-station-east-entrance,Person,2025-12-27 00:00:00,2025-12-28 00:00:00,0
+fukui-station-east-entrance,Person,2025-12-28 00:00:00,2025-12-29 00:00:00,0
+fukui-station-east-entrance,Person,2025-12-29 00:00:00,2025-12-30 00:00:00,0
+fukui-station-east-entrance,Person,2025-12-30 00:00:00,2025-12-31 00:00:00,0
+fukui-station-east-entrance,Person,2025-12-31 00:00:00,2026-01-01 00:00:00,0
+fukui-station-east-entrance,Person,2026-01-01 00:00:00,2026-01-02 00:00:00,0
+fukui-station-east-entrance,Person,2026-01-02 00:00:00,2026-01-03 00:00:00,0
+fukui-station-east-entrance,Person,2026-01-03 00:00:00,2026-01-04 00:00:00,0
+fukui-station-east-entrance,Person,2026-01-04 00:00:00,2026-01-05 00:00:00,0
+fukui-station-east-entrance,Person,2026-01-05 00:00:00,2026-01-06 00:00:00,0
+fukui-station-east-entrance,Person,2026-01-06 00:00:00,2026-01-07 00:00:00,4743
+fukui-station-east-entrance,Person,2026-01-07 00:00:00,2026-01-08 00:00:00,5541
+fukui-station-east-entrance,Person,2026-01-08 00:00:00,2026-01-09 00:00:00,4652
+fukui-station-east-entrance,Person,2026-01-09 00:00:00,2026-01-10 00:00:00,6611
+fukui-station-east-entrance,Person,2026-01-10 00:00:00,2026-01-11 00:00:00,11095
+fukui-station-east-entrance,Person,2026-01-11 00:00:00,2026-01-12 00:00:00,8638
+fukui-station-east-entrance,Person,2026-01-12 00:00:00,2026-01-13 00:00:00,6810
+fukui-station-east-entrance,Person,2026-01-13 00:00:00,2026-01-14 00:00:00,4992
+fukui-station-east-entrance,Person,2026-01-14 00:00:00,2026-01-15 00:00:00,6192
+fukui-station-east-entrance,Person,2026-01-15 00:00:00,2026-01-16 00:00:00,6041
+fukui-station-east-entrance,Person,2026-01-16 00:00:00,2026-01-17 00:00:00,6258
+fukui-station-east-entrance,Person,2026-01-17 00:00:00,2026-01-18 00:00:00,6393
+fukui-station-east-entrance,Person,2026-01-18 00:00:00,2026-01-19 00:00:00,7973
+fukui-station-east-entrance,Person,2026-01-19 00:00:00,2026-01-20 00:00:00,5581
+fukui-station-east-entrance,Person,2026-01-20 00:00:00,2026-01-21 00:00:00,6005
+fukui-station-east-entrance,Person,2026-01-21 00:00:00,2026-01-22 00:00:00,5640
+fukui-station-east-entrance,Person,2026-01-22 00:00:00,2026-01-23 00:00:00,3729
+fukui-station-east-entrance,Person,2026-01-23 00:00:00,2026-01-24 00:00:00,6173
+fukui-station-east-entrance,Person,2026-01-24 00:00:00,2026-01-25 00:00:00,6282
+fukui-station-east-entrance,Person,2026-01-25 00:00:00,2026-01-26 00:00:00,6686
+fukui-station-east-entrance,Person,2026-01-26 00:00:00,2026-01-27 00:00:00,5757
+fukui-station-east-entrance,Person,2026-01-27 00:00:00,2026-01-28 00:00:00,5776
+fukui-station-east-entrance,Person,2026-01-28 00:00:00,2026-01-29 00:00:00,5908
+fukui-station-east-entrance,Person,2026-01-29 00:00:00,2026-01-30 00:00:00,5976
+fukui-station-east-entrance,Person,2026-01-30 00:00:00,2026-01-31 00:00:00,7387
+fukui-station-east-entrance,Person,2026-01-31 00:00:00,2026-02-01 00:00:00,8055
+fukui-station-east-entrance,Person,2026-02-01 00:00:00,2026-02-02 00:00:00,8391
+fukui-station-east-entrance,Person,2026-02-02 00:00:00,2026-02-03 00:00:00,5721
+fukui-station-east-entrance,Person,2026-02-03 00:00:00,2026-02-04 00:00:00,5669
+fukui-station-east-entrance,Person,2026-02-04 00:00:00,2026-02-05 00:00:00,6129
+fukui-station-east-entrance,Person,2026-02-05 00:00:00,2026-02-06 00:00:00,5378
+fukui-station-east-entrance,Person,2026-02-06 00:00:00,2026-02-07 00:00:00,6511
+fukui-station-east-entrance,Person,2026-02-07 00:00:00,2026-02-08 00:00:00,11511
+fukui-station-east-entrance,Person,2026-02-08 00:00:00,2026-02-09 00:00:00,11334
+fukui-station-east-entrance,Person,2026-02-09 00:00:00,2026-02-10 00:00:00,6960
+fukui-station-east-entrance,Person,2026-02-10 00:00:00,2026-02-11 00:00:00,6213
+fukui-station-east-entrance,Person,2026-02-11 00:00:00,2026-02-12 00:00:00,7701
+fukui-station-east-entrance,Person,2026-02-12 00:00:00,2026-02-13 00:00:00,6262
+fukui-station-east-entrance,Person,2026-02-13 00:00:00,2026-02-14 00:00:00,7128
+fukui-station-east-entrance,Person,2026-02-14 00:00:00,2026-02-15 00:00:00,8679
+fukui-station-east-entrance,Person,2026-02-15 00:00:00,2026-02-16 00:00:00,8707
+fukui-station-east-entrance,Person,2026-02-16 00:00:00,2026-02-17 00:00:00,7707
+fukui-station-east-entrance,Person,2026-02-17 00:00:00,2026-02-18 00:00:00,7118
+fukui-station-east-entrance,Person,2026-02-18 00:00:00,2026-02-19 00:00:00,7368
+fukui-station-east-entrance,Person,2026-02-19 00:00:00,2026-02-20 00:00:00,7947
+fukui-station-east-entrance,Person,2026-02-20 00:00:00,2026-02-21 00:00:00,8438
+fukui-station-east-entrance,Person,2026-02-21 00:00:00,2026-02-22 00:00:00,11502
+fukui-station-east-entrance,Person,2026-02-22 00:00:00,2026-02-23 00:00:00,12396
+fukui-station-east-entrance,Person,2026-02-23 00:00:00,2026-02-24 00:00:00,12047
+fukui-station-east-entrance,Person,2026-02-24 00:00:00,2026-02-25 00:00:00,8694
+fukui-station-east-entrance,Person,2026-02-25 00:00:00,2026-02-26 00:00:00,7668
+fukui-station-east-entrance,Person,2026-02-26 00:00:00,2026-02-27 00:00:00,8193
+fukui-station-east-entrance,Person,2026-02-27 00:00:00,2026-02-28 00:00:00,7856
+fukui-station-east-entrance,Person,2026-02-28 00:00:00,2026-03-01 00:00:00,9796
+fukui-station-east-entrance,Person,2026-03-01 00:00:00,2026-03-02 00:00:00,9962
+fukui-station-east-entrance,Person,2026-03-02 00:00:00,2026-03-03 00:00:00,7234
+fukui-station-east-entrance,Person,2026-03-03 00:00:00,2026-03-04 00:00:00,7109
+fukui-station-east-entrance,Person,2026-03-04 00:00:00,2026-03-05 00:00:00,6627
+fukui-station-east-entrance,Person,2026-03-05 00:00:00,2026-03-06 00:00:00,6730
+fukui-station-east-entrance,Person,2026-03-06 00:00:00,2026-03-07 00:00:00,7520
+fukui-station-east-entrance,Person,2026-03-07 00:00:00,2026-03-08 00:00:00,10174
+fukui-station-east-entrance,Person,2026-03-08 00:00:00,2026-03-09 00:00:00,11410
+fukui-station-east-entrance,Person,2026-03-09 00:00:00,2026-03-10 00:00:00,7136
+fukui-station-east-entrance,Person,2026-03-10 00:00:00,2026-03-11 00:00:00,7825
+fukui-station-east-entrance,Person,2026-03-11 00:00:00,2026-03-12 00:00:00,7792
+fukui-station-east-entrance,Person,2026-03-12 00:00:00,2026-03-13 00:00:00,7797
+fukui-station-east-entrance,Person,2026-03-13 00:00:00,2026-03-14 00:00:00,9893
+fukui-station-east-entrance,Person,2026-03-14 00:00:00,2026-03-15 00:00:00,11467
+fukui-station-east-entrance,Person,2026-03-15 00:00:00,2026-03-16 00:00:00,11858
+fukui-station-east-entrance,Person,2026-03-16 00:00:00,2026-03-17 00:00:00,8289
+fukui-station-east-entrance,Person,2026-03-17 00:00:00,2026-03-18 00:00:00,8300
+fukui-station-east-entrance,Person,2026-03-18 00:00:00,2026-03-19 00:00:00,8504
+fukui-station-east-entrance,Person,2026-03-19 00:00:00,2026-03-20 00:00:00,10030
+fukui-station-east-entrance,Person,2026-03-20 00:00:00,2026-03-21 00:00:00,13278
+fukui-station-east-entrance,Person,2026-03-21 00:00:00,2026-03-22 00:00:00,13274
+fukui-station-east-entrance,Person,2026-03-22 00:00:00,2026-03-23 00:00:00,13340
+fukui-station-east-entrance,Person,2026-03-23 00:00:00,2026-03-24 00:00:00,0
+fukui-station-east-entrance,Person,2026-03-24 00:00:00,2026-03-25 00:00:00,8811
+fukui-station-east-entrance,Person,2026-03-25 00:00:00,2026-03-26 00:00:00,9068
+fukui-station-east-entrance,Person,2026-03-26 00:00:00,2026-03-27 00:00:00,9450
+fukui-station-east-entrance,Person,2026-03-27 00:00:00,2026-03-28 00:00:00,10568
+fukui-station-east-entrance,Person,2026-03-28 00:00:00,2026-03-29 00:00:00,14093
+fukui-station-east-entrance,Person,2026-03-29 00:00:00,2026-03-30 00:00:00,18522
+fukui-station-east-entrance,Person,2026-03-30 00:00:00,2026-03-31 00:00:00,10934
+fukui-station-east-entrance,Person,2026-03-31 00:00:00,2026-04-01 00:00:00,8814
+fukui-station-east-entrance,Person,2026-04-01 00:00:00,2026-04-02 00:00:00,8299
+fukui-station-east-entrance,Person,2026-04-02 00:00:00,2026-04-03 00:00:00,8549
+fukui-station-east-entrance,Person,2026-04-03 00:00:00,2026-04-04 00:00:00,8606
+fukui-station-east-entrance,Person,2026-04-04 00:00:00,2026-04-05 00:00:00,11243
+fukui-station-east-entrance,Person,2026-04-05 00:00:00,2026-04-06 00:00:00,11682
+fukui-station-east-entrance,Person,2026-04-06 00:00:00,2026-04-07 00:00:00,7947
+fukui-station-east-entrance,Person,2026-04-07 00:00:00,2026-04-08 00:00:00,7355
+fukui-station-east-entrance,Person,2026-04-08 00:00:00,2026-04-09 00:00:00,6760
+fukui-station-east-entrance,Person,2026-04-09 00:00:00,2026-04-10 00:00:00,6053
+fukui-station-east-entrance,Person,2026-04-10 00:00:00,2026-04-11 00:00:00,7400
+fukui-station-east-entrance,Person,2026-04-11 00:00:00,2026-04-12 00:00:00,10251
+fukui-station-east-entrance,Person,2026-04-12 00:00:00,2026-04-13 00:00:00,11167
+fukui-station-east-entrance,Person,2026-04-13 00:00:00,2026-04-14 00:00:00,7094
+fukui-station-east-entrance,Person,2026-04-14 00:00:00,2026-04-15 00:00:00,6169
+fukui-station-east-entrance,Person,2026-04-15 00:00:00,2026-04-16 00:00:00,6127
+fukui-station-east-entrance,Person,2026-04-16 00:00:00,2026-04-17 00:00:00,8573
+fukui-station-east-entrance,Person,2026-04-17 00:00:00,2026-04-18 00:00:00,8586
+fukui-station-east-entrance,Person,2026-04-18 00:00:00,2026-04-19 00:00:00,10558
+fukui-station-east-entrance,Person,2026-04-19 00:00:00,2026-04-20 00:00:00,10250
+fukui-station-east-entrance,Person,2026-04-20 00:00:00,2026-04-21 00:00:00,7177
+fukui-station-east-entrance,Person,2026-04-21 00:00:00,2026-04-22 00:00:00,6652
+fukui-station-east-entrance,Person,2026-04-22 00:00:00,2026-04-23 00:00:00,7547

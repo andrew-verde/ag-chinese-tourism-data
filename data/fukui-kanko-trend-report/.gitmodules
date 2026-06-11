@@ -1,0 +1,4 @@
+[submodule "public/data"]
+	path = public/data
+	url = https://github.com/code4fukui/fukui-kanko-trend-data
+	shallow = true

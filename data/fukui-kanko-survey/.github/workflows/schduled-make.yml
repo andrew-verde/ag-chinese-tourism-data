@@ -1,0 +1,53 @@
+name: Scheduled 
+
+on:
+  schedule:
+    # 4:25分に実行 JST-9+24=19(UTC)
+    - cron: '25 19 * * *'
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - name: make
+        run: |
+          deno run -A makeYearly.js
+      - name: commit and push
+        run: |
+          git config --global user.email "workflow@example.com"
+          git config --global user.name "workflow user"
+          git add .
+          git commit -m 'update data' && git push ${REPO} HEAD:${{github.event.pull_request.head.ref}} || true
+          git push
+      - name: Notify Slack on failure
+        if: failure()
+        run: |
+          curl --fail -X POST -H 'Content-type: application/json' \
+          --data '{
+            "attachments": [
+              {
+                "color": "#E01E5A",
+                "title": "【福井県観光アンケート】データ更新に失敗しました。",
+                "title_link": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+                "fields": [
+                  {
+                    "title": "ワークフロー",
+                    "value": "${{ github.workflow }}",
+                    "short": true
+                  },
+                  {
+                    "title": "ジョブ",
+                    "value": "${{ github.job }}",
+                    "short": true
+                  }
+                ],
+                "text": "GitHub Actionsの実行中にエラーが発生しました。至急ログを確認してください。"
+              }
+            ]
+          }' \
+          ${{ secrets.SLACK_WEBHOOK }}

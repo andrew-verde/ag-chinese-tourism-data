@@ -10,6 +10,7 @@ Run:
 """
 import argparse
 import csv
+import shutil
 import time
 import urllib.parse
 from pathlib import Path
@@ -77,12 +78,25 @@ def scroll_to_load(page, iterations=12, delay=1.5):
 
 
 def save_csv(rows, output_path: Path):
+    if not rows:
+        print(f'No rows collected; leaving existing output unchanged: {output_path}')
+        return False
+
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    with output_path.open('w', newline='', encoding='utf-8') as csvfile:
+    temp_path = output_path.with_suffix(output_path.suffix + '.tmp')
+    backup_path = output_path.with_suffix(output_path.suffix + '.bak')
+
+    with temp_path.open('w', newline='', encoding='utf-8') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=['note_id', 'title', 'note_url', 'author', 'author_url'])
         writer.writeheader()
         for row in rows:
             writer.writerow(row)
+
+    if output_path.exists():
+        shutil.copy2(output_path, backup_path)
+        print(f'Backed up previous output to {backup_path}')
+    temp_path.replace(output_path)
+    return True
 
 
 def main():
@@ -118,8 +132,8 @@ def main():
     unique_notes = {note['note_url']: note for note in notes}
     rows = list(unique_notes.values())
     print(f'Collected {len(rows)} note records')
-    save_csv(rows, Path(args.output))
-    print(f'Saved results to {args.output}')
+    if save_csv(rows, Path(args.output)):
+        print(f'Saved results to {args.output}')
 
 
 if __name__ == '__main__':

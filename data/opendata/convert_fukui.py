@@ -4,6 +4,11 @@ import os
 import codecs
 import re
 from datetime import datetime
+from pathlib import Path
+from safe_io import replace_with_backup, safe_write_text
+
+
+BASE_DIR = Path(__file__).resolve().parent
 
 def process_fukui_csv(input_file_path):
     """
@@ -66,9 +71,9 @@ def process_fukui_csv(input_file_path):
         print(f"処理後のファイルサイズ: {len(content)} 文字")
         
         # 修正した内容をフォーマット済みファイルに出力
-        formatted_file_path = input_file_path.replace('.csv', '_formatted.csv')
-        with open(formatted_file_path, 'w', encoding='utf-8') as f:
-            f.write(content)
+        formatted_file_path = Path(input_file_path).with_name(Path(input_file_path).stem + '_formatted.csv')
+        if not safe_write_text(formatted_file_path, content):
+            return False
         
         print(f"福井CSVファイルの前処理完了: {formatted_file_path}")
         return True
@@ -280,9 +285,9 @@ def check_information_source_flags(information_source):
 
 def convert_fukui_csv():
     # ファイルパス
-    input_csv = "input/fukui/fukui_formatted.csv"
-    mapping_json = "input/fukui/column_mapping_fukui.json"
-    output_csv = "output/fukui/fukui_converted.csv"
+    input_csv = BASE_DIR / "input/fukui/fukui_formatted.csv"
+    mapping_json = BASE_DIR / "input/fukui/column_mapping_fukui.json"
+    output_csv = BASE_DIR / "output/fukui/fukui_converted.csv"
     
     # JSONマッピングファイルを読み込み
     with open(mapping_json, 'r', encoding='utf-8') as f:
@@ -310,9 +315,14 @@ def convert_fukui_csv():
     
     if reader is None:
         raise UnicodeDecodeError("すべてのエンコーディングでCSVファイルの読み込みに失敗しました")
+    if not rows:
+        raise RuntimeError(f"入力CSVにデータ行がないため既存ファイルを保持しました: {output_csv}")
     
     # 出力CSVを作成
-    with open(output_csv, 'w', encoding='utf-8', newline='') as f:
+    output_csv.parent.mkdir(parents=True, exist_ok=True)
+    temp_output_csv = output_csv.with_suffix(output_csv.suffix + '.tmp')
+    written_rows = 0
+    with open(temp_output_csv, 'w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
         
         # ヘッダー行を書き込み
@@ -421,16 +431,21 @@ def convert_fukui_csv():
                         output_row.append("")
             
             writer.writerow(output_row)
+            written_rows += 1
+    if written_rows == 0:
+        temp_output_csv.unlink(missing_ok=True)
+        raise RuntimeError(f"変換結果が空のため既存ファイルを保持しました: {output_csv}")
+    replace_with_backup(temp_output_csv, output_csv)
     
     print(f"変換完了: {output_csv}")
-    print(f"出力行数: {len(rows)}")
+    print(f"出力行数: {written_rows}")
 
 def main():
     """
     メイン処理
     """
     # 福井CSVファイルの前処理を実行
-    input_csv = "input/fukui/fukui.csv"
+    input_csv = BASE_DIR / "input/fukui/fukui.csv"
     if os.path.exists(input_csv):
         print("福井CSVファイルの前処理を開始します...")
         if process_fukui_csv(input_csv):

@@ -16,12 +16,17 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Tuple, Dict
 from download_data import DataDownloader
+from safe_io import safe_write_csv
+
+
+BASE_DIR = Path(__file__).resolve().parent
 
 class SurveyMerger:
     def __init__(self, input_dir: str = "output", output_dir: str = "output_merge"):
-        self.input_dir = Path(input_dir)
-        self.output_dir = Path(output_dir)
-        self.downloader = DataDownloader()
+        self.base_dir = BASE_DIR
+        self.input_dir = self.base_dir / input_dir
+        self.output_dir = self.base_dir / output_dir
+        self.downloader = DataDownloader(self.base_dir)
         
     def run_conversion_scripts(self) -> bool:
         """3つの変換スクリプトを順に実行"""
@@ -36,11 +41,13 @@ class SurveyMerger:
         for script in scripts:
             print(f"\n{script} を実行中...")
             try:
+                script_path = self.base_dir / script
                 # スクリプトを実行
-                result = subprocess.run([sys.executable, script], 
+                result = subprocess.run([sys.executable, str(script_path)], 
                                       capture_output=True, 
                                       text=True, 
-                                      encoding='utf-8')
+                                      encoding='utf-8',
+                                      cwd=self.base_dir)
                 
                 if result.returncode == 0:
                     print(f"✓ {script} が正常に完了しました")
@@ -143,10 +150,8 @@ class SurveyMerger:
         # マージされたデータをCSVファイルに出力
         output_file = self.output_dir / "merged_survey.csv"
         try:
-            with open(output_file, 'w', newline='', encoding='utf-8') as f:
-                writer = csv.writer(f)
-                writer.writerow(base_headers)  # ヘッダー行を書き込み
-                writer.writerows(merged_data)  # データ行を書き込み
+            if not safe_write_csv(output_file, base_headers, merged_data):
+                return False
             
             print(f"マージ完了: '{output_file}' に {len(merged_data)} 件の回答を保存しました。")
             
@@ -213,10 +218,8 @@ class SurveyMerger:
                 output_file = self.output_dir / f"merged_survey_{year}.csv"
                 year_rows = year_data[year]
                 
-                with open(output_file, 'w', newline='', encoding='utf-8') as f:
-                    writer = csv.writer(f)
-                    writer.writerow(headers)  # ヘッダー行を書き込み
-                    writer.writerows(year_rows)  # データ行を書き込み
+                if not safe_write_csv(output_file, headers, year_rows):
+                    return False
                 
                 print(f"  {year}年: {output_file} に {len(year_rows)} 件の回答を保存しました。")
             
@@ -231,9 +234,9 @@ class SurveyMerger:
     def split_converted_csv_files(self):
         """各変換後のCSVファイルを年毎に分割"""
         converted_files = [
-            Path("output/toyama/toyama_converted.csv"),
-            Path("output/ishikawa/ishikawa_converted.csv"),
-            Path("output/fukui/fukui_converted.csv")
+            self.base_dir / "output/toyama/toyama_converted.csv",
+            self.base_dir / "output/ishikawa/ishikawa_converted.csv",
+            self.base_dir / "output/fukui/fukui_converted.csv"
         ]
         
         print(f"\n=== 変換後CSVファイルの年毎分割 ===")
@@ -291,10 +294,8 @@ class SurveyMerger:
                         output_file = output_dir / f"{base_name}_{year}.csv"
                         year_rows = year_data[year]
                         
-                        with open(output_file, 'w', newline='', encoding='utf-8') as f:
-                            writer = csv.writer(f)
-                            writer.writerow(headers)  # ヘッダー行を書き込み
-                            writer.writerows(year_rows)  # データ行を書き込み
+                        if not safe_write_csv(output_file, headers, year_rows):
+                            continue
                         
                         print(f"  {csv_file.name} → {output_file.name}: {len(year_rows)}件 ({year}年)")
                 else:
@@ -307,34 +308,9 @@ class SurveyMerger:
                 continue
     
     def cleanup_output_directories(self):
-        """変換前の出力ディレクトリをクリーンアップ"""
-        output_dirs = [
-            Path("output/fukui"),
-            Path("output/ishikawa"),
-            Path("output/toyama")
-        ]
-        
+        """過去の出力は削除しない。各出力ファイルは安全書き込みで更新する。"""
         print("=== 出力ディレクトリのクリーンアップ ===")
-        
-        for output_dir in output_dirs:
-            if output_dir.exists():
-                # ディレクトリ内のすべてのファイルを削除
-                files_deleted = 0
-                for file_path in output_dir.iterdir():
-                    if file_path.is_file():
-                        try:
-                            file_path.unlink()
-                            files_deleted += 1
-                        except Exception as e:
-                            print(f"  警告: {file_path} の削除に失敗しました: {e}")
-                
-                if files_deleted > 0:
-                    print(f"  {output_dir}: {files_deleted}件のファイルを削除しました")
-                else:
-                    print(f"  {output_dir}: 削除するファイルはありませんでした")
-            else:
-                print(f"  {output_dir}: ディレクトリが存在しないためスキップ")
-        
+        print("  既存の研究出力を保護するため、物理削除は行いません。")
         print()
     
     def run(self):
@@ -344,7 +320,8 @@ class SurveyMerger:
         
         # 1. データのダウンロード
         if not self.downloader.download_all_data():
-            print("警告: データのダウンロードに失敗しましたが、処理を続行します。")
+            print("エラー: データのダウンロードに失敗したため、既存データを保護して処理を停止します。")
+            return False
         
         print()
         

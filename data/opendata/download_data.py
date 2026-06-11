@@ -13,10 +13,17 @@ import tempfile
 import traceback
 import urllib.request
 from pathlib import Path
+from safe_io import safe_copy_file, safe_write_bytes, safe_write_csv
 
 
 class DataDownloader:
     """データダウンロードクラス"""
+
+    def __init__(self, base_dir: Path | None = None):
+        self.base_dir = Path(base_dir) if base_dir else Path(__file__).resolve().parent
+
+    def resolve_path(self, relative_path: str | Path) -> Path:
+        return self.base_dir / relative_path
     
     def download_file(self, url: str, output_path: Path) -> bool:
         """URLからファイルをダウンロード"""
@@ -27,9 +34,8 @@ class DataDownloader:
             
             with urllib.request.urlopen(req, timeout=30) as response:
                 data = response.read()
-                output_path.parent.mkdir(parents=True, exist_ok=True)
-                with open(output_path, 'wb') as f:
-                    f.write(data)
+            if not safe_write_bytes(output_path, data):
+                return False
             print(f"  ✓ ダウンロード完了: {output_path}")
             return True
         except Exception as e:
@@ -40,7 +46,7 @@ class DataDownloader:
         """富山のデータをダウンロード"""
         print("\n=== 富山県データのダウンロード ===")
         url = "https://toyama-pref.box.com/shared/static/6tpwiv96wzngxsk3rio1t1vi1dhordnn.csv"
-        output_path = Path("input/toyama/toyama.csv")
+        output_path = self.resolve_path("input/toyama/toyama.csv")
         return self.download_file(url, output_path)
     
     def download_ishikawa_data(self) -> bool:
@@ -51,7 +57,7 @@ class DataDownloader:
         spreadsheet_id = "1riK_ufkmF6Ql7Tujwlm22FtHOLz7hwUzf6Zi6JAG_QI"
         gid = "0"
         url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export?format=csv&gid={gid}"
-        output_path = Path("input/ishikawa/ishikawa.csv")
+        output_path = self.resolve_path("input/ishikawa/ishikawa.csv")
         return self.download_file(url, output_path)
     
     def download_fukui_data(self) -> bool:
@@ -111,7 +117,7 @@ class DataDownloader:
             
             # CSVファイルをマージ
             print(f"  {len(downloaded_files)}件のCSVファイルをマージ中...")
-            output_path = Path("input/fukui/fukui.csv")
+            output_path = self.resolve_path("input/fukui/fukui.csv")
             output_path.parent.mkdir(parents=True, exist_ok=True)
             
             merged_headers = None
@@ -137,12 +143,9 @@ class DataDownloader:
                     print(f"    ✗ {csv_file.name} の読み込みエラー: {e}")
                     continue
             
-            # マージしたデータを出力
-            with open(output_path, 'w', newline='', encoding='utf-8') as f:
-                writer = csv.writer(f)
-                if merged_headers:
-                    writer.writerow(merged_headers)
-                writer.writerows(merged_data)
+            if not safe_write_csv(output_path, merged_headers or [], merged_data):
+                print("  ✗ マージ結果が空のため、既存の福井データを保持しました")
+                return False
             
             print(f"  ✓ マージ完了: {output_path} ({len(merged_data)}行)")
             
@@ -153,11 +156,8 @@ class DataDownloader:
                 original_name = csv_file.name
                 new_name = f"fukui_{original_name}"
                 dest_file = output_path.parent / new_name
-                shutil.copy2(csv_file, dest_file)
-                print(f"    ✓ {original_name} を {dest_file.name} に保存")
-            
-            # 一時ディレクトリを削除
-            shutil.rmtree(temp_dir)
+                if safe_copy_file(csv_file, dest_file):
+                    print(f"    ✓ {original_name} を {dest_file.name} に保存")
             
             return True
             
@@ -165,6 +165,9 @@ class DataDownloader:
             print(f"  ✗ 福井データのダウンロードエラー: {e}")
             traceback.print_exc()
             return False
+        finally:
+            if 'temp_dir' in locals() and temp_dir.exists():
+                shutil.rmtree(temp_dir)
     
     def download_all_data(self) -> bool:
         """すべてのデータをダウンロード"""

@@ -4,6 +4,11 @@ import os
 import codecs
 import shutil
 from datetime import datetime
+from pathlib import Path
+from safe_io import safe_copy_file, safe_write_csv
+
+
+BASE_DIR = Path(__file__).resolve().parent
 
 def convert_satisfaction_to_number(satisfaction_str):
     """
@@ -269,14 +274,15 @@ def copy_toyama_csv():
     """
     toyama.csvをtoyama_formatted.csvとしてコピー
     """
-    source_file = "input/toyama/toyama.csv"
-    target_file = "input/toyama/toyama_formatted.csv"
+    source_file = BASE_DIR / "input/toyama/toyama.csv"
+    target_file = BASE_DIR / "input/toyama/toyama_formatted.csv"
     
     try:
         if os.path.exists(source_file):
-            shutil.copy2(source_file, target_file)
-            print(f"ファイルコピー完了: {source_file} -> {target_file}")
-            return True
+            if safe_copy_file(source_file, target_file):
+                print(f"ファイルコピー完了: {source_file} -> {target_file}")
+                return True
+            return False
         else:
             print(f"ソースファイルが見つかりません: {source_file}")
             return False
@@ -286,9 +292,9 @@ def copy_toyama_csv():
 
 def convert_toyama_csv():
     # ファイルパス
-    input_csv = "input/toyama/toyama_formatted.csv"
-    mapping_json = "input/toyama/column_mapping_toyama.json"
-    output_csv = "output/toyama/toyama_converted.csv"
+    input_csv = BASE_DIR / "input/toyama/toyama_formatted.csv"
+    mapping_json = BASE_DIR / "input/toyama/column_mapping_toyama.json"
+    output_csv = BASE_DIR / "output/toyama/toyama_converted.csv"
     
     # JSONマッピングファイルを読み込み
     with open(mapping_json, 'r', encoding='utf-8') as f:
@@ -303,95 +309,90 @@ def convert_toyama_csv():
         input_headers = reader.fieldnames
         rows = list(reader)
 
-    # 出力CSVを作成
-    with open(output_csv, 'w', encoding='utf-8', newline='') as f:
-        writer = csv.writer(f)
-        
-        # ヘッダー行を書き込み
-        writer.writerow(output_headers)
-        
-        # データ行を処理
-        for row in rows:
-            output_row = []
-            
-            for header in output_headers:
-                # 1項目目の"対象県（富山/石川/福井）"は"富山"を出力
-                if header == "対象県（富山/石川/福井）":
-                    output_row.append("富山")
-                # 「情報源」項目の特別処理
-                elif header == "情報源":
-                    value = format_information_source(row)
-                    output_row.append(value)
-                # 情報源関連のフラグ項目の処理
-                elif header in ["Facebook", "Google", "Googleマップ", "Instagram", "TikTok", 
-                               "X（旧Twitter）", "YouTube", "SNS広告", "ブログ", "まとめサイト",
-                               "インターネット・アプリ", "デジタルニュース", "宿泊予約Webサイト",
-                               "宿泊施設", "TV・ラジオ番組やCM", "ラブライブのスタンプラリー",
-                               "新聞・雑誌・ガイドブック", "旅行会社", "友人・知人", "地元の人",
-                               "観光パンフレット・ポスター", "観光案内所", "観光展・物産展",
-                               "観光連盟やDMOのHP", "その他"]:
-                    # 情報源の文字列を取得
-                    information_source = format_information_source(row)
-                    # フラグをチェック
-                    flags = check_information_source_flags(information_source)
-                    # 該当するフラグの値を設定
-                    value = flags.get(header, 0)
-                    output_row.append(value)
-                # 目的関連のフラグ項目の処理
-                elif header in ["宿でのんびり過ごす", "温泉や露天風呂", "地元の美味しいものを食べる",
-                               "花見や紅葉などの自然鑑賞", "名所、旧跡の観光", "テーマパーク（遊園地、動物園、博物館など）",
-                               "買い物、アウトレット", "お祭りやイベントへの参加・見物", "スポーツ観戦や芸能鑑賞（コンサート等）",
-                               "アウトドア（海水浴、釣り、登山など）", "まちあるき、都市散策", "各種体験（手作り、果物狩りなど）",
-                               "スキー・スノボ、マリンスポーツ", "その他スポーツ（ゴルフ、テニスなど）",
-                               "ドライブ・ツーリング", "友人・親戚を尋ねる", "出張など仕事関係", "その他の目的"]:
-                    # 目的の文字列を取得
-                    purpose_field = mapping["目的"]
-                    purpose_text = row.get(purpose_field, "") if purpose_field else ""
-                    # フラグをチェック
-                    flags = parse_purpose_flags(purpose_text)
-                    # 該当するフラグの値を設定
-                    value = flags.get(header, 0)
-                    output_row.append(value)
-                # 交通手段関連のフラグ項目の処理
-                elif header in ["自家用車", "レンタカー", "新幹線", "在来線", "飛行機", 
-                               "旅行会社ツアーバス", "県外から訪れていない（福井県在住）"]:
-                    # 交通手段の文字列を取得
-                    transport_field = mapping["交通手段１（目的地まで）"]
-                    transport_text = row.get(transport_field, "") if transport_field else ""
-                    # フラグをチェック
-                    flags = parse_transport_flags(transport_text)
-                    # 該当するフラグの値を設定
-                    value = flags.get(header, 0)
-                    output_row.append(value)
-                # 交通手段2関連のフラグ項目の処理
-                elif header in ["タクシー", "路線バス", "徒歩", "レンタサイクル"]:
-                    # 交通手段2の文字列を取得
-                    transport2_field = mapping["交通手段２（目的地から）"]
-                    transport2_text = row.get(transport2_field, "") if transport2_field else ""
-                    # フラグをチェック
-                    flags = parse_transport2_flags(transport2_text)
-                    # 該当するフラグの値を設定
-                    value = flags.get(header, 0)
-                    output_row.append(value)
-                # 満足度項目の処理
-                elif header in ["交通の満足度", 
-                               "満足度（食べ物・料理）", "満足度（宿泊施設）", 
-                               "満足度（買い物（工芸品・特産品など））", "満足度（観光・体験）", 
-                               "満足度（旅行全体）", "満足度（商品・サービス）"]:
-                    # マッピングから対応する入力項目名を取得
-                    input_field = mapping[header]
-                    
-                    if input_field == "":
-                        # マッピングが空文字の場合は空文字を出力
-                        output_row.append("")
-                    elif input_field in row:
-                        # 入力CSVに項目が存在する場合は満足度を数値に変換
-                        value = row[input_field]
-                        converted_value = convert_satisfaction_to_number(value)
-                        output_row.append(converted_value)
-                    else:
-                        # 入力CSVに項目が存在しない場合は空文字を出力
-                        output_row.append("")
+    converted_rows = []
+
+    # データ行を処理
+    for row in rows:
+        output_row = []
+
+        for header in output_headers:
+            # 1項目目の"対象県（富山/石川/福井）"は"富山"を出力
+            if header == "対象県（富山/石川/福井）":
+                output_row.append("富山")
+            # 「情報源」項目の特別処理
+            elif header == "情報源":
+                value = format_information_source(row)
+                output_row.append(value)
+            # 情報源関連のフラグ項目の処理
+            elif header in ["Facebook", "Google", "Googleマップ", "Instagram", "TikTok", 
+                            "X（旧Twitter）", "YouTube", "SNS広告", "ブログ", "まとめサイト",
+                            "インターネット・アプリ", "デジタルニュース", "宿泊予約Webサイト",
+                            "宿泊施設", "TV・ラジオ番組やCM", "ラブライブのスタンプラリー",
+                            "新聞・雑誌・ガイドブック", "旅行会社", "友人・知人", "地元の人",
+                            "観光パンフレット・ポスター", "観光案内所", "観光展・物産展",
+                            "観光連盟やDMOのHP", "その他"]:
+                # 情報源の文字列を取得
+                information_source = format_information_source(row)
+                # フラグをチェック
+                flags = check_information_source_flags(information_source)
+                # 該当するフラグの値を設定
+                value = flags.get(header, 0)
+                output_row.append(value)
+            # 目的関連のフラグ項目の処理
+            elif header in ["宿でのんびり過ごす", "温泉や露天風呂", "地元の美味しいものを食べる",
+                            "花見や紅葉などの自然鑑賞", "名所、旧跡の観光", "テーマパーク（遊園地、動物園、博物館など）",
+                            "買い物、アウトレット", "お祭りやイベントへの参加・見物", "スポーツ観戦や芸能鑑賞（コンサート等）",
+                            "アウトドア（海水浴、釣り、登山など）", "まちあるき、都市散策", "各種体験（手作り、果物狩りなど）",
+                            "スキー・スノボ、マリンスポーツ", "その他スポーツ（ゴルフ、テニスなど）",
+                            "ドライブ・ツーリング", "友人・親戚を尋ねる", "出張など仕事関係", "その他の目的"]:
+                # 目的の文字列を取得
+                purpose_field = mapping["目的"]
+                purpose_text = row.get(purpose_field, "") if purpose_field else ""
+                # フラグをチェック
+                flags = parse_purpose_flags(purpose_text)
+                # 該当するフラグの値を設定
+                value = flags.get(header, 0)
+                output_row.append(value)
+            # 交通手段関連のフラグ項目の処理
+            elif header in ["自家用車", "レンタカー", "新幹線", "在来線", "飛行機", 
+                            "旅行会社ツアーバス", "県外から訪れていない（福井県在住）"]:
+                # 交通手段の文字列を取得
+                transport_field = mapping["交通手段１（目的地まで）"]
+                transport_text = row.get(transport_field, "") if transport_field else ""
+                # フラグをチェック
+                flags = parse_transport_flags(transport_text)
+                # 該当するフラグの値を設定
+                value = flags.get(header, 0)
+                output_row.append(value)
+            # 交通手段2関連のフラグ項目の処理
+            elif header in ["タクシー", "路線バス", "徒歩", "レンタサイクル"]:
+                # 交通手段2の文字列を取得
+                transport2_field = mapping["交通手段２（目的地から）"]
+                transport2_text = row.get(transport2_field, "") if transport2_field else ""
+                # フラグをチェック
+                flags = parse_transport2_flags(transport2_text)
+                # 該当するフラグの値を設定
+                value = flags.get(header, 0)
+                output_row.append(value)
+            # 満足度項目の処理
+            elif header in ["交通の満足度", 
+                            "満足度（食べ物・料理）", "満足度（宿泊施設）", 
+                            "満足度（買い物（工芸品・特産品など））", "満足度（観光・体験）", 
+                            "満足度（旅行全体）", "満足度（商品・サービス）"]:
+                # マッピングから対応する入力項目名を取得
+                input_field = mapping[header]
+
+                if input_field == "":
+                    # マッピングが空文字の場合は空文字を出力
+                    output_row.append("")
+                elif input_field in row:
+                    # 入力CSVに項目が存在する場合は満足度を数値に変換
+                    value = row[input_field]
+                    converted_value = convert_satisfaction_to_number(value)
+                    output_row.append(converted_value)
+                else:
+                    # 入力CSVに項目が存在しない場合は空文字を出力
+                    output_row.append("")
                 else:
                     # マッピングから対応する入力項目名を取得
                     input_field = mapping[header]
@@ -418,10 +419,13 @@ def convert_toyama_csv():
                         # 入力CSVに項目が存在しない場合は空文字を出力
                         output_row.append("")
             
-            writer.writerow(output_row)
+        converted_rows.append(output_row)
+
+    if not safe_write_csv(output_csv, output_headers, converted_rows):
+        raise RuntimeError(f"変換結果が空のため既存ファイルを保持しました: {output_csv}")
     
     print(f"変換完了: {output_csv}")
-    print(f"出力行数: {len(rows)}")
+    print(f"出力行数: {len(converted_rows)}")
 
 def main():
     """

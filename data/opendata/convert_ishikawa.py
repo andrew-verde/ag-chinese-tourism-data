@@ -3,6 +3,11 @@ import json
 import os
 import codecs
 from datetime import datetime
+from pathlib import Path
+from safe_io import replace_with_backup, safe_write_text
+
+
+BASE_DIR = Path(__file__).resolve().parent
 
 def remove_unwanted_linebreaks(input_file_path):
     """
@@ -70,9 +75,9 @@ def remove_unwanted_linebreaks(input_file_path):
         content = content.replace('___CRLF___', '\r\n')
         
         # 修正した内容をフォーマット済みファイルに出力
-        formatted_file_path = input_file_path.replace('.csv', '_formatted.csv')
-        with open(formatted_file_path, 'w', encoding='utf-8') as f:
-            f.write(content)
+        formatted_file_path = Path(input_file_path).with_name(Path(input_file_path).stem + '_formatted.csv')
+        if not safe_write_text(formatted_file_path, content):
+            return False
         
         print(f"不要な改行コードの削除完了: {formatted_file_path}")
         return True
@@ -326,9 +331,9 @@ def check_information_source_flags(information_source):
 
 def convert_ishikawa_csv():
     # ファイルパス
-    input_csv = "input/ishikawa/ishikawa_formatted.csv"
-    mapping_json = "input/ishikawa/column_mapping_ishikawa.json"
-    output_csv = "output/ishikawa/ishikawa_converted.csv"
+    input_csv = BASE_DIR / "input/ishikawa/ishikawa_formatted.csv"
+    mapping_json = BASE_DIR / "input/ishikawa/column_mapping_ishikawa.json"
+    output_csv = BASE_DIR / "output/ishikawa/ishikawa_converted.csv"
     
     # JSONマッピングファイルを読み込み
     with open(mapping_json, 'r', encoding='utf-8') as f:
@@ -356,9 +361,13 @@ def convert_ishikawa_csv():
     
     if reader is None:
         raise UnicodeDecodeError("すべてのエンコーディングでCSVファイルの読み込みに失敗しました")
+    if not rows:
+        raise RuntimeError(f"入力CSVにデータ行がないため既存ファイルを保持しました: {output_csv}")
     
     # 出力CSVを作成
-    with open(output_csv, 'w', encoding='utf-8', newline='') as f:
+    output_csv.parent.mkdir(parents=True, exist_ok=True)
+    temp_output_csv = output_csv.with_suffix(output_csv.suffix + '.tmp')
+    with open(temp_output_csv, 'w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
         
         # ヘッダー行を書き込み
@@ -485,6 +494,7 @@ def convert_ishikawa_csv():
                         output_row.append("")
             
             writer.writerow(output_row)
+    replace_with_backup(temp_output_csv, output_csv)
     
     print(f"変換完了: {output_csv}")
     print(f"出力行数: {len(rows)}")
@@ -494,7 +504,7 @@ def main():
     メイン処理
     """
     # 不要な改行コードの削除を実行
-    input_csv = "input/ishikawa/ishikawa.csv"
+    input_csv = BASE_DIR / "input/ishikawa/ishikawa.csv"
     if os.path.exists(input_csv):
         print("不要な改行コードの削除を開始します...")
         if remove_unwanted_linebreaks(input_csv):

@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from pipeline_io import UnsafeWriteError, read_csv_rows, safe_write_csv
+from src.pipeline_io import UnsafeWriteError, read_csv_rows, safe_write_csv
 
 
 FIELDNAMES = ["note_id", "title", "note_url"]

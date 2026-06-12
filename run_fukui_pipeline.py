@@ -17,8 +17,8 @@ def run_step(command: list[str]) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run Fukui Xiaohongshu collection and analysis.")
     parser.add_argument("--keyword", default="福井", help="Xiaohongshu search keyword")
-    parser.add_argument("--raw-output", default="fukui_xhs_reviews.csv", help="CSV created by the data pull")
-    parser.add_argument("--analysis-output", default="fukui_xhs_analysis.csv", help="CSV created by the analysis step")
+    parser.add_argument("--raw-output", default="data/raw/social/fukui_xhs_reviews.csv", help="CSV created by the data pull")
+    parser.add_argument("--analysis-output", default="data/processed/fukui_xhs_analysis.csv", help="CSV created by the analysis step")
     parser.add_argument("--scrolls", type=int, default=16, help="Number of scroll steps during the pull")
     parser.add_argument("--delay", type=float, default=1.8, help="Seconds to wait after each scroll")
     parser.add_argument("--top", type=int, default=20, help="Number of top keywords to print in analysis")
@@ -34,7 +34,7 @@ def main() -> None:
     if not args.skip_pull:
         pull_command = [
             sys.executable,
-            str(repo_root / "xhs_fukui_reviews.py"),
+            "-m", "src.scrapers.xhs_fukui_reviews",
             "--keyword",
             args.keyword,
             "--output",
@@ -56,7 +56,7 @@ def main() -> None:
 
     analysis_command = [
         sys.executable,
-        str(repo_root / "xhs_fukui_analysis.py"),
+        "-m", "src.analysis.xhs_fukui_analysis",
         "--input",
         args.raw_output,
         "--output",

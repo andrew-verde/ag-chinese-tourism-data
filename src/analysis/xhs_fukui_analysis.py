@@ -8,6 +8,7 @@ Usage:
 import argparse
 import csv
 import re
+import urllib.parse
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -30,6 +31,7 @@ KEYWORD_CANDIDATES = [
     'vlog', '同款', '偶像', '粉丝', '小众', '景点', '出发', '体验', '游记', '推荐',
     '慢游', '吃好吃的', '家乡', 'riku的家乡'
 ]
+DEDUP_KEY_FIELDS = ['note_id', 'note_url', 'title', 'author']
 
 
 def normalize_text(text: str) -> str:
@@ -69,6 +71,64 @@ def classify_note_title(title: str):
     if travel_counts:
         return 'travel', fan_score, travel_score
     return 'ordinary', fan_score, travel_score
+
+
+def extract_note_id_from_url(url: str) -> str:
+    if not url:
+        return ''
+    path = urllib.parse.urlparse(url).path.rstrip('/')
+    if not path:
+        return ''
+    parts = [part for part in path.split('/') if part]
+    if len(parts) >= 2 and parts[-2] == 'search_result':
+        return parts[-1]
+    return ''
+
+
+def canonical_note_url(url: str) -> str:
+    if not url:
+        return ''
+    parsed = urllib.parse.urlparse(url.strip())
+    path = parsed.path.rstrip('/')
+    if not parsed.netloc and not path:
+        return ''
+    return urllib.parse.urlunparse((parsed.scheme, parsed.netloc.lower(), path, '', '', ''))
+
+
+def note_dedup_key(note: dict[str, str]) -> tuple[str, str]:
+    note_id = (note.get('note_id') or '').strip()
+    if note_id:
+        return 'note_id', note_id
+
+    url_id = extract_note_id_from_url(note.get('note_url', ''))
+    if url_id:
+        return 'note_id', url_id
+
+    note_url = canonical_note_url(note.get('note_url', ''))
+    if note_url:
+        return 'note_url', note_url
+
+    title = normalize_text(note.get('title', ''))
+    author = normalize_text(note.get('author', ''))
+    if title or author:
+        return 'title_author', f'{title}|{author}'
+
+    values = tuple((note.get(field) or '').strip() for field in DEDUP_KEY_FIELDS)
+    return 'row', repr(values)
+
+
+def dedupe_notes(notes: list[dict[str, str]]) -> tuple[list[dict[str, str]], int]:
+    deduped: dict[tuple[str, str], dict[str, str]] = {}
+    order: list[tuple[str, str]] = []
+
+    for note in notes:
+        key = note_dedup_key(note)
+        if key not in deduped:
+            order.append(key)
+        deduped[key] = dict(note)
+
+    unique_notes = [deduped[key] for key in order]
+    return unique_notes, len(notes) - len(unique_notes)
 
 
 def analyze_notes(notes):
@@ -159,7 +219,10 @@ def main():
     if not path.exists():
         raise SystemExit(f'Input file not found: {path}')
 
-    notes = load_csv(path)
+    raw_notes = load_csv(path)
+    notes, duplicate_count = dedupe_notes(raw_notes)
+    if duplicate_count:
+        print(f'De-duplicated {duplicate_count} duplicate note rows before analysis')
     report = analyze_notes(notes)
     print_summary(report, top_n=args.top)
 

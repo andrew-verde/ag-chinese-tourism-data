@@ -55,6 +55,9 @@ python -m playwright install chromium
 # 1. Scrape (manual, logged-in browser session — see docs/手动运行数据抓取指南.md)
 python3 run_fukui_pipeline.py
 
+# Optional: capture Xiaohongshu note body text after manually opening each note
+python3 -m src.scrapers.xhs_manual_note_capture --output data/raw/social/fukui_xhs_reviews.csv
+
 # 2. Build the MLIT monthly series
 python3 -m src.analysis.build_china_time_series
 
@@ -66,6 +69,31 @@ python3 -m pytest tests/
 ```
 
 All commands run from the repository root.
+
+## Xiaohongshu note body capture
+
+`src.scrapers.xhs_fukui_reviews` remains the title-only search-result scraper.
+It opens search pages and saves `note_id`, `title`, `note_url`, `author`, and
+`author_url`.
+
+For full visible note text, use the manual assistant:
+
+```bash
+python3 -m src.scrapers.xhs_manual_note_capture --output data/raw/social/fukui_xhs_reviews.csv
+```
+
+The assistant opens a persistent Playwright Chromium profile under
+`.browser-profiles/xhs-manual` so login can be reused. You manually search,
+open, and click each Xiaohongshu note in the browser. The script does not click
+search results. Press Enter in the terminal to capture the current note page.
+
+Rows are merged into the CSV using `note_id` / `note_url`, so an existing
+title-only row is updated with `body_text` and `content` when the same note is
+captured. If visible body text cannot be found, the script exits without
+writing, so failed captures do not silently create partial research data.
+
+The previous automated title-only solution is also preserved for reference at
+`src/scrapers/history/xhs_fukui_reviews_title_only.py`.
 
 ## Relationship to upstream / 与原仓库的关系
 

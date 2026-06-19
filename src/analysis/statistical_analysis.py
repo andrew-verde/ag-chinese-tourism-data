@@ -8,10 +8,12 @@ Date: 2026
 import pandas as pd
 import numpy as np
 import os
+import tempfile
 from scipy import stats
 from scipy.stats import chi2_contingency, ttest_ind, f_oneway
 
 os.environ.setdefault("LOKY_MAX_CPU_COUNT", "1")
+os.environ.setdefault("MPLCONFIGDIR", os.path.join(tempfile.gettempdir(), "tourism-data-matplotlib"))
 
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
@@ -20,6 +22,15 @@ import seaborn as sns
 from datetime import datetime
 import warnings
 warnings.filterwarnings('ignore')
+
+
+def require_columns(df, path, columns):
+    missing = [col for col in columns if col not in df.columns]
+    if missing:
+        raise ValueError(
+            f"{path} lacks required column(s): {', '.join(repr(col) for col in missing)}. "
+            f"Available columns: {', '.join(map(str, df.columns))}"
+        )
 
 # ============================================================================
 # 1. THEME FREQUENCY ANALYSIS - Chi-Square Goodness of Fit Test
@@ -422,9 +433,7 @@ def main():
 
     if args.classified_reviews:
         reviews = load_research_data(args.classified_reviews)
-        for col in ("theme", "emotion_score"):
-            if col not in reviews.columns:
-                raise ValueError(f"{args.classified_reviews} lacks required column {col!r}")
+        require_columns(reviews, args.classified_reviews, ("theme", "emotion_score"))
         theme_counts = reviews["theme"].value_counts().to_dict()
         analyze_theme_distribution(theme_counts)
         analyze_sentiment_theme_correlation(
@@ -437,6 +446,7 @@ def main():
 
     if args.monthly:
         monthly = load_research_data(args.monthly)
+        require_columns(monthly, args.monthly, ("month", "visitors", "is_event_month"))
         event_indices = [i for i, flag in enumerate(monthly["is_event_month"]) if flag]
         analyze_event_impact(
             {"month": monthly["month"].tolist(),
@@ -447,6 +457,7 @@ def main():
 
     if args.market:
         market = load_research_data(args.market)
+        require_columns(market, args.market, ("prefecture", "visitors", "avg_spend", "population"))
         market = market.set_index(market["prefecture"].str.lower())
         fukui = market.loc["fukui"]
         ishikawa = market.loc["ishikawa"]
@@ -464,4 +475,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except ValueError as error:
+        raise SystemExit(str(error)) from None

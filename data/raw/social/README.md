@@ -1,9 +1,11 @@
 # Scraper output lands here. Real Data only — see CONTEXT.md and docs/adr/0001.
 
-- `fukui_xhs_reviews.csv`: raw Xiaohongshu scraper output used by pipeline.
+- `fukui_xhs_reviews.csv`: raw Xiaohongshu scraper output used as the
+  title-only candidate list.
 - `fukui_xhs_reviews_manual.xlsx`: manual review workbook copied from the Hokuriku
   sentiment project. It preserves scraper IDs/titles/URLs plus manually added
-  `body_text` needed for analysis checks.
+  `body_text` needed for analysis checks. This workbook is the XHS input for
+  the current analysis run.
 - `fukui_douyin_posts_comments.md`: manually pasted Douyin post/comment text
   exported from Google Drive as Markdown. This is not a platform-native export:
   it does not contain reliable Douyin post IDs or comment IDs.
@@ -36,7 +38,7 @@ is note-level author text; parsed Douyin rows are comment-level audience text.
 For analysis, build a combined run dataset with:
 
 ```bash
-python3 -m src.analysis.build_chinese_social_run_dataset
+python3 -m src.analysis.build_chinese_social_run_dataset --allow-shrink
 ```
 
 Default outputs:

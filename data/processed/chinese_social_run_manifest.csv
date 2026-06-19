@@ -1,5 +1,5 @@
 input_name,path,rows,included_in_run,notes
-xiaohongshu_analysis,data/processed/fukui_xhs_analysis.csv,206,true,one row per Xiaohongshu note; theme/fan/travel fields retained
+xiaohongshu_analysis,data/processed/fukui_xhs_analysis.csv,149,true,one row per Xiaohongshu note; theme/fan/travel fields retained
 douyin_comments,data/processed/fukui_douyin_comments_from_md.csv,1521,true,one row per parsed Douyin comment; source line spans retained in input CSV
 reviewed_codebook,docs/codebooks/chinese_reviewed_codebook_template.csv,268,true,method/codebook input; not appended as observation rows
-combined_run_data,data/processed/chinese_social_run_data.csv,1727,true,shared text_for_analysis with platform and unit_type preserved
+combined_run_data,data/processed/chinese_social_run_data.csv,1670,true,shared text_for_analysis with platform and unit_type preserved

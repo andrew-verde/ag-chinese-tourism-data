@@ -23,7 +23,8 @@ one text field while keeping provenance visible.
 
 | Input | Role |
 |---|---|
-| `data/processed/fukui_xhs_analysis.csv` | Xiaohongshu note rows, including existing theme/fan/travel classification |
+| `data/raw/social/fukui_xhs_reviews_manual.xlsx` | source workbook for Xiaohongshu note rows, including reviewed `body_text` |
+| `data/processed/fukui_xhs_analysis.csv` | Xiaohongshu note rows derived from the manual workbook, including theme/fan/travel classification |
 | `data/processed/fukui_douyin_comments_from_md.csv` | parsed Douyin comment rows from the manual Markdown handoff |
 | `docs/codebooks/chinese_reviewed_codebook_template.csv` | reviewed keyword/codebook source for future coding rules |
 
@@ -32,7 +33,8 @@ one text field while keeping provenance visible.
 Run:
 
 ```bash
-python3 -m src.analysis.build_chinese_social_run_dataset
+python3 -m src.analysis.xhs_fukui_analysis --input data/raw/social/fukui_xhs_reviews_manual.xlsx --allow-shrink
+python3 -m src.analysis.build_chinese_social_run_dataset --allow-shrink
 ```
 
 Outputs:
@@ -56,5 +58,7 @@ Outputs:
   missing post IDs or comment IDs.
 - Douyin comment rows may show audience reaction to tourism content, not author
   trip reports.
+- Xiaohongshu rows use reviewed `body_text` from
+  `data/raw/social/fukui_xhs_reviews_manual.xlsx`; `title` is fallback only.
 - Any platform comparison must stratify or report by `platform` and `unit_type`;
   do not treat all rows as interchangeable posts.

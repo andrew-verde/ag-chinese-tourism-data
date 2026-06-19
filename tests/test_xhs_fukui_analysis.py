@@ -61,6 +61,24 @@ class XhsFukuiAnalysisTests(unittest.TestCase):
         self.assertEqual(duplicate_count, 1)
         self.assertEqual(report["total_notes"], 1)
 
+    def test_analysis_uses_body_text_before_title(self):
+        rows = [
+            {
+                **note(note_id="abc", title="福井"),
+                "body_text": "福井交通不方便，公交班次少，但永平寺值得推荐",
+            }
+        ]
+
+        report = xhs_fukui_analysis.analyze_notes(rows)
+        theme, fan_score, travel_score = xhs_fukui_analysis.classify_note_text(
+            xhs_fukui_analysis.note_analysis_text(rows[0])
+        )
+
+        self.assertEqual(report["keyword_hit"]["交通"], 1)
+        self.assertEqual(theme, "travel")
+        self.assertEqual(fan_score, 0)
+        self.assertGreater(travel_score, 0)
+
 
 if __name__ == "__main__":
     unittest.main()

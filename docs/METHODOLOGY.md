@@ -13,7 +13,7 @@ collection so that sampling and analysis decisions are fixed in advance.
 
 | Source | What | How collected |
 |---|---|---|
-| Xiaohongshu (小红书) | Posts/notes mentioning 福井 / Hokuriku destinations | Manual logged-in scrape — `docs/手动运行数据抓取指南.md` |
+| Xiaohongshu (小红书) | Posts/notes mentioning 福井 / Hokuriku destinations | Manual workbook with reviewed `body_text`: `data/raw/social/fukui_xhs_reviews_manual.xlsx` |
 | Douyin (抖音) | Videos mentioning the same destinations | Same procedure |
 | MLIT / JTA | 宿泊旅行統計調査, 訪日外国人消費動向調査 | Official downloads into `data/raw/mlit/`, hand-extracted tables into `data/raw/jta/` with source URL + table number recorded |
 | Fukui open data | People-flow, surveys, trend reports | `data/raw/fukui-kanko-*`, `data/raw/opendata` |

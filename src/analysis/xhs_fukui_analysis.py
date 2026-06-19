@@ -2,7 +2,7 @@
 """Analyze Xiaohongshu Fukui review note results.
 
 Usage:
-    python3 xhs_fukui_analysis.py --input fukui_xhs_reviews.csv
+    python3 -m src.analysis.xhs_fukui_analysis
 """
 
 import argparse
@@ -12,8 +12,14 @@ import urllib.parse
 from collections import Counter, defaultdict
 from pathlib import Path
 
+import pandas as pd
+
 from src.pipeline_io import UnsafeWriteError, safe_write_csv
 
+
+DEFAULT_INPUT = 'data/raw/social/fukui_xhs_reviews_manual.xlsx'
+DEFAULT_SHEET = 'fukui_xhs_reviews'
+DEFAULT_OUTPUT = 'data/processed/fukui_xhs_analysis.csv'
 
 FAN_KEYWORDS = [
     'riku', 'wish', 'nctwish', 'nct', '粉丝', '打卡', '巡礼', '同款', '偶像', '家乡', '朝圣',
@@ -53,8 +59,12 @@ def count_keyword_occurrences(text: str, keywords):
     return counts
 
 
-def classify_note_title(title: str):
-    text = normalize_text(title)
+def note_analysis_text(note: dict[str, str]) -> str:
+    return note.get('body_text') or note.get('content') or note.get('title') or ''
+
+
+def classify_note_text(text: str):
+    text = normalize_text(text)
     fan_counts = count_keyword_occurrences(text, FAN_KEYWORDS)
     travel_counts = count_keyword_occurrences(text, TRAVEL_KEYWORDS)
     fan_score = sum(fan_counts.values())
@@ -71,6 +81,10 @@ def classify_note_title(title: str):
     if travel_counts:
         return 'travel', fan_score, travel_score
     return 'ordinary', fan_score, travel_score
+
+
+def classify_note_title(title: str):
+    return classify_note_text(title)
 
 
 def extract_note_id_from_url(url: str) -> str:
@@ -139,15 +153,16 @@ def analyze_notes(notes):
     theme_examples = defaultdict(list)
 
     for note in notes:
+        text = note_analysis_text(note)
         title = note.get('title', '') or ''
-        normalized = normalize_text(title)
+        normalized = normalize_text(text)
         for kw in KEYWORD_CANDIDATES:
             count = len(re.findall(re.escape(kw), normalized, flags=re.IGNORECASE))
             if count > 0:
                 keyword_occurrence[kw] += count
                 keyword_hit[kw] += 1
 
-        theme, fan_score, travel_score = classify_note_title(title)
+        theme, fan_score, travel_score = classify_note_text(text)
         theme_counts[theme] += 1
         if len(theme_examples[theme]) < 5:
             theme_examples[theme].append({'title': title, 'fan_score': fan_score, 'travel_score': travel_score})
@@ -165,6 +180,13 @@ def load_csv(path: Path):
     with path.open(newline='', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         return list(reader)
+
+
+def load_notes(path: Path, sheet_name: str):
+    if path.suffix.lower() in {'.xlsx', '.xls'}:
+        df = pd.read_excel(path, sheet_name=sheet_name).fillna('')
+        return [{key: str(value).strip() for key, value in row.items()} for row in df.to_dict('records')]
+    return load_csv(path)
 
 
 def print_summary(report, top_n=20):
@@ -193,7 +215,7 @@ def print_summary(report, top_n=20):
                 print(f'    - {item["title"]} (fan={item["fan_score"]}, travel={item["travel_score"]})')
 
 
-def save_classification(notes, path: Path):
+def save_classification(notes, path: Path, *, allow_shrink: bool = False):
     if not notes:
         return
     fieldnames = list(notes[0].keys())
@@ -204,22 +226,24 @@ def save_classification(notes, path: Path):
         key_fields=['note_id', 'note_url'],
         merge_existing=False,
         allow_empty=False,
-        allow_shrink=False,
+        allow_shrink=allow_shrink,
     )
 
 
 def main():
     parser = argparse.ArgumentParser(description='Analyze Xiaohongshu Fukui review notes for keyword and theme proportions.')
-    parser.add_argument('--input', default='data/raw/social/fukui_xhs_reviews.csv', help='Input CSV file from scraper')
-    parser.add_argument('--output', default='data/processed/fukui_xhs_analysis.csv', help='Optional output CSV file for classification results')
+    parser.add_argument('--input', default=DEFAULT_INPUT, help='Input CSV/XLSX file from manual workbook')
+    parser.add_argument('--sheet', default=DEFAULT_SHEET, help='Excel sheet name when --input is an .xlsx/.xls file')
+    parser.add_argument('--output', default=DEFAULT_OUTPUT, help='Optional output CSV file for classification results')
     parser.add_argument('--top', type=int, default=20, help='Number of top keywords to print')
+    parser.add_argument('--allow-shrink', action='store_true', help='Allow writing fewer rows than an existing output after source review')
     args = parser.parse_args()
 
     path = Path(args.input)
     if not path.exists():
         raise SystemExit(f'Input file not found: {path}')
 
-    raw_notes = load_csv(path)
+    raw_notes = load_notes(path, args.sheet)
     notes, duplicate_count = dedupe_notes(raw_notes)
     if duplicate_count:
         print(f'De-duplicated {duplicate_count} duplicate note rows before analysis')
@@ -228,7 +252,7 @@ def main():
 
     classified = []
     for note in notes:
-        theme, fan_score, travel_score = classify_note_title(note.get('title', ''))
+        theme, fan_score, travel_score = classify_note_text(note_analysis_text(note))
         note = dict(note)
         note['theme'] = theme
         note['fan_score'] = fan_score
@@ -236,7 +260,7 @@ def main():
         classified.append(note)
 
     try:
-        save_result = save_classification(classified, Path(args.output))
+        save_result = save_classification(classified, Path(args.output), allow_shrink=args.allow_shrink)
     except UnsafeWriteError as exc:
         raise SystemExit(str(exc)) from exc
     if save_result is None:

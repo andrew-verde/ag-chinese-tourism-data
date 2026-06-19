@@ -55,12 +55,12 @@ python -m playwright install chromium
 # 1. Scrape (manual, logged-in browser session — see docs/手动运行数据抓取指南.md)
 python3 run_fukui_pipeline.py
 
-# Optional: capture Xiaohongshu note body text after manually opening each note
-python3 -m src.scrapers.xhs_manual_note_capture --output data/raw/social/fukui_xhs_reviews.csv
+# XHS analysis uses the reviewed manual workbook with body_text
+python3 -m src.analysis.xhs_fukui_analysis --allow-shrink
 
 # Optional: parse manually exported Douyin comments and build combined run data
 python3 -m src.analysis.parse_douyin_markdown_comments
-python3 -m src.analysis.build_chinese_social_run_dataset
+python3 -m src.analysis.build_chinese_social_run_dataset --allow-shrink
 
 # 2. Build the MLIT monthly series
 python3 -m src.analysis.build_china_time_series
@@ -75,6 +75,9 @@ python3 -m pytest tests/
 All commands run from the repository root.
 
 ## Xiaohongshu note body capture
+
+`data/raw/social/fukui_xhs_reviews_manual.xlsx` is the analysis input for the
+current XHS run because it contains reviewed note-level `body_text`.
 
 `src.scrapers.xhs_fukui_reviews` remains the title-only search-result scraper.
 It opens search pages and saves `note_id`, `title`, `note_url`, `author`, and
@@ -96,6 +99,14 @@ title-only row is updated with `body_text` and `content` when the same note is
 captured. If visible body text cannot be found, the script exits without
 writing, so failed captures do not silently create partial research data.
 
+For analysis, run:
+
+```bash
+python3 -m src.analysis.xhs_fukui_analysis --input data/raw/social/fukui_xhs_reviews_manual.xlsx --allow-shrink
+```
+
+The classifier reads `body_text` first and uses `title` only as fallback.
+
 The previous automated title-only solution is also preserved for reference at
 `src/scrapers/history/xhs_fukui_reviews_title_only.py`.
 
@@ -105,7 +116,7 @@ Douyin comment-section rows are not copied into Xiaohongshu `body_text`.
 Instead, run:
 
 ```bash
-python3 -m src.analysis.build_chinese_social_run_dataset
+python3 -m src.analysis.build_chinese_social_run_dataset --allow-shrink
 ```
 
 This writes `data/processed/chinese_social_run_data.csv` and

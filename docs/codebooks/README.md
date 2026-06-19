@@ -5,3 +5,8 @@
   final keyword, code family, and bilingual labels for friction/theme coding.
   Use this as methodology evidence and as the source for future machine-readable
   analysis rules.
+
+The combined Chinese social-media run records this file in
+`data/processed/chinese_social_run_manifest.csv` as a method input. It is not
+appended to the observation-level dataset because codebook rows are coding
+rules, not social-media posts or comments.

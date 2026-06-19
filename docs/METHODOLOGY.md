@@ -22,6 +22,14 @@ All analysis inputs load through `src/data_loading.load_research_data`
 (see `docs/adr/0001`). Findings may only be derived from Real Data as
 defined in `CONTEXT.md`.
 
+For the Chinese social-media run, Xiaohongshu notes and Douyin comments are
+combined only after normalization into `data/processed/chinese_social_run_data.csv`.
+The shared analysis text column is `text_for_analysis`; `platform` and
+`unit_type` remain required interpretation fields. Douyin comments are not
+converted into Xiaohongshu `body_text`, because they are comment-level audience
+responses rather than note-level author text. Full decision log:
+`docs/chinese_social_media_run_method.md`.
+
 ## 2. Sample selection / 样本选择
 
 Decide and record **before** sampling:

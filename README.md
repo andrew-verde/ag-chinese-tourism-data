@@ -58,6 +58,10 @@ python3 run_fukui_pipeline.py
 # Optional: capture Xiaohongshu note body text after manually opening each note
 python3 -m src.scrapers.xhs_manual_note_capture --output data/raw/social/fukui_xhs_reviews.csv
 
+# Optional: parse manually exported Douyin comments and build combined run data
+python3 -m src.analysis.parse_douyin_markdown_comments
+python3 -m src.analysis.build_chinese_social_run_dataset
+
 # 2. Build the MLIT monthly series
 python3 -m src.analysis.build_china_time_series
 
@@ -94,6 +98,20 @@ writing, so failed captures do not silently create partial research data.
 
 The previous automated title-only solution is also preserved for reference at
 `src/scrapers/history/xhs_fukui_reviews_title_only.py`.
+
+## Chinese social-media combined run data
+
+Douyin comment-section rows are not copied into Xiaohongshu `body_text`.
+Instead, run:
+
+```bash
+python3 -m src.analysis.build_chinese_social_run_dataset
+```
+
+This writes `data/processed/chinese_social_run_data.csv` and
+`data/processed/chinese_social_run_manifest.csv`. The combined CSV has one
+shared `text_for_analysis` field while preserving `platform` and `unit_type`.
+See `docs/chinese_social_media_run_method.md`.
 
 ## Relationship to upstream / 与原仓库的关系
 
